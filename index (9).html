@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lower San Juan Watershed Plan — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0d2b45;--navy-mid:#1a3f5c;--navy-light:#2a5275;
+  --teal:#0e6b6b;--teal-light:#1a8f8f;--teal-bright:#22b5a0;
+  --sand:#f4f1ea;--sand-dark:#e8e3d6;
+  --rust:#c0522a;--rust-light:#e06030;
+  --white:#ffffff;--muted:#5a7080;--text:#0d2b45;
+}
+html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);background:#f9f8f5;}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--navy);padding:9px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--teal-bright);}
+.topbar-left{display:flex;align-items:center;gap:18px;}
+.topbar .dept{color:#e8f4fb;font-size:13px;font-weight:700;}
+.topbar .div{color:#a8cfe0;font-size:11px;}
+.topbar-tag{background:var(--teal-bright);color:var(--navy);font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+.topbar-right{display:flex;align-items:center;gap:22px;}
+.watershed-pill{display:flex;align-items:center;gap:7px;}
+.wlabel{color:#88b4cc;font-size:10px;text-transform:uppercase;letter-spacing:.08em;}
+.wsep{color:#4a7090;}
+.wname{color:#fff;font-size:13px;font-weight:600;}
+.topbar-help{color:#a8cfe0;font-size:12px;text-decoration:none;display:flex;align-items:center;gap:5px;}
+.topbar-help:hover{color:#fff;}
+
+/* ── MAIN NAV ── */
+.main-nav{background:var(--navy-light);display:flex;align-items:stretch;border-bottom:2px solid rgba(255,255,255,.08);}
+.nav-item{display:flex;flex-direction:column;padding:11px 22px;text-decoration:none;border-right:1px solid rgba(255,255,255,.1);transition:background .15s;}
+.nav-item:hover{background:rgba(255,255,255,.08);}
+.nav-item.active{background:rgba(34,181,160,.18);border-bottom:3px solid var(--teal-bright);}
+.nav-item .nm{color:#fff;font-size:13px;font-weight:700;}
+.nav-item .ns{color:#9dc8de;font-size:11px;margin-top:2px;}
+.nav-spacer{flex:1;}
+.nav-actions{display:flex;align-items:center;gap:8px;padding:0 20px;}
+.btn-nav-p{background:var(--teal);color:#fff;border:none;padding:7px 15px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;white-space:nowrap;}
+.btn-nav-p:hover{background:var(--teal-light);}
+.btn-nav-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:6px 14px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
+.btn-nav-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+
+/* ── PAGE LAYOUT ── */
+.page-body{display:flex;min-height:calc(100vh - 96px);}
+
+/* ── SIDEBAR ── */
+.sidebar{width:200px;flex-shrink:0;background:var(--sand);border-right:1px solid var(--sand-dark);padding:20px 0;}
+.sb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8f9a;padding:0 16px 10px;}
+.sb-link{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:13px;font-weight:500;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
+.sb-link:hover{background:var(--sand-dark);color:var(--navy);}
+.sb-link.active{border-left-color:var(--teal-bright);background:rgba(34,181,160,.08);color:var(--teal);font-weight:700;}
+.sb-link svg{flex-shrink:0;width:14px;height:14px;}
+
+/* ── MAIN ── */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+
+/* ── HERO ── */
+.hero{background:var(--navy-mid);padding:36px 40px 32px;display:flex;align-items:center;gap:48px;border-bottom:2px solid rgba(255,255,255,.06);}
+.hero-text{flex:1;min-width:0;}
+.hero-badge{display:inline-block;background:rgba(34,181,160,.2);color:var(--teal-bright);border:1px solid rgba(34,181,160,.4);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:3px;margin-bottom:12px;}
+.hero h1{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
+.hero-sub{font-size:14px;color:#b8d8e8;line-height:1.65;margin-bottom:20px;max-width:500px;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-hero-p{background:var(--teal-bright);color:var(--navy);border:none;padding:11px 22px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;}
+.btn-hero-p:hover{background:#29ccb5;}
+.btn-hero-o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45);padding:9px 20px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;}
+.btn-hero-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+.hero-disclaimer{flex-shrink:0;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:14px 18px;max-width:210px;}
+.hero-disclaimer svg{display:block;margin-bottom:7px;}
+.hero-disclaimer p{color:#88b4cc;font-size:11px;line-height:1.55;font-style:italic;}
+
+/* ── CONTENT ── */
+.content{flex:1;padding:32px 40px;}
+.breadcrumb{font-size:12px;color:#7a8f9a;margin-bottom:16px;}
+.section-title{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.section-lead{font-size:14px;color:#4a6070;line-height:1.7;margin-bottom:26px;max-width:620px;}
+.cards-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:13px;}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;}
+.nav-card{border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:all .18s;background:#fff;}
+.nav-card:hover{border-color:var(--teal);box-shadow:0 3px 14px rgba(14,107,107,.1);transform:translateY(-2px);}
+.card-hdr{background:var(--navy);padding:13px 13px 9px;display:flex;align-items:flex-start;gap:10px;}
+.card-icon{width:32px;height:32px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-icon svg{width:16px;height:16px;}
+.card-title{color:#fff;font-size:13px;font-weight:700;line-height:1.2;margin-bottom:2px;}
+.card-kicker{color:#9dc8de;font-size:10px;}
+.card-body{padding:12px 14px;flex:1;}
+.card-desc{font-size:12.5px;color:#4a6070;line-height:1.55;margin-bottom:11px;}
+.card-cta{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;}
+.card-badge{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700;float:right;margin-top:1px;}
+.badge-start{background:rgba(34,181,160,.15);color:var(--teal);}
+.badge-int{background:rgba(13,43,69,.1);color:var(--navy);}
+.badge-dl{background:rgba(192,82,42,.12);color:var(--rust);}
+
+/* ── STATS STRIP ── */
+.stats-strip{display:flex;background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;margin-bottom:28px;}
+.stat-block{flex:1;padding:14px 20px;border-right:1px solid var(--sand-dark);}
+.stat-block:last-child{border-right:none;}
+.stat-num{font-size:22px;font-weight:700;color:var(--navy);line-height:1;}
+.stat-num sup{font-size:12px;font-weight:600;vertical-align:super;}
+.stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:3px;}
+
+/* ── GOAL MAP CARDS ── */
+.goal-maps-section{margin-bottom:28px;}
+.goal-maps-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:13px;}
+.featured-map{background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;margin-bottom:14px;transition:border-color .18s;}
+.featured-map:hover{border-color:var(--teal);}
+.fm-top{background:var(--navy);padding:16px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+.fm-badge{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:rgba(34,181,160,.25);color:var(--teal-bright);border:1px solid rgba(34,181,160,.4);display:inline-block;margin-bottom:7px;}
+.fm-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
+.fm-sub{font-size:12px;color:#9dc8de;line-height:1.55;max-width:440px;}
+.fm-icon{font-size:2rem;opacity:.5;flex-shrink:0;}
+.fm-body{padding:14px 20px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.fm-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.fm-tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:3px;background:var(--sand);color:#4a6070;border:1px solid var(--sand-dark);}
+.fm-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:8px 16px;border-radius:4px;background:var(--teal);color:#fff;text-decoration:none;transition:background .15s;white-space:nowrap;flex-shrink:0;}
+.fm-link:hover{background:var(--teal-light);}
+.goal-map-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.gm-card{background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:all .18s;}
+.gm-card:hover{border-color:var(--teal);box-shadow:0 3px 14px rgba(14,107,107,.1);transform:translateY(-2px);}
+.gm-top{padding:13px 16px 10px;display:flex;align-items:flex-start;gap:10px;}
+.gm-num{font-size:24px;font-weight:700;line-height:1;flex-shrink:0;width:32px;}
+.gm-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
+.gm-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:4px;}
+.gm-desc{font-size:11.5px;color:#4a6070;line-height:1.55;}
+.gm-foot{margin-top:auto;padding:8px 16px;border-top:1px solid var(--sand-dark);background:var(--sand);display:flex;align-items:center;justify-content:space-between;}
+.gm-tags{display:flex;gap:5px;}
+.gm-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;}
+.gm-cta{font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:gap .15s;}
+.gm-cta:hover{gap:7px;}
+.gm-cta svg{width:11px;height:11px;}
+
+/* ── CALLOUT ── */
+.callout{background:var(--navy);border-radius:7px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;}
+.callout-icon{width:38px;height:38px;background:rgba(34,181,160,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.callout-icon svg{width:17px;height:17px;}
+.callout-title{color:#fff;font-size:15px;font-weight:700;margin-bottom:4px;}
+.callout-text{color:#a8c8d8;font-size:13px;line-height:1.55;margin-bottom:11px;}
+.btn-callout{background:var(--teal-bright);color:var(--navy);border:none;padding:8px 18px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:background .15s;}
+.btn-callout:hover{background:#29ccb5;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div>
+      <div class="dept">Utah Dept. of Environmental Quality</div>
+      <div class="div">Division of Water Quality</div>
+    </div>
+    <span class="topbar-tag">9-Element Watershed Plan</span>
+  </div>
+  <div class="topbar-right">
+    <div class="watershed-pill">
+      <span class="wlabel">You are viewing</span>
+      <span class="wsep">›</span>
+      <span class="wname">Lower San Juan Watershed</span>
+    </div>
+    <a href="#" class="topbar-help">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Help &amp; glossary
+    </a>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <a href="index.html" class="nav-item active">
+    <span class="nm">Home</span>
+    <span class="ns">Overview &amp; about</span>
+  </a>
+  <a href="lsj_goals.html" class="nav-item">
+    <span class="nm">Plan goals</span>
+    <span class="ns">Targets &amp; outcomes</span>
+  </a>
+  <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="nav-item">
+    <span class="nm">Spatial explorer ↗</span>
+    <span class="ns">Interactive maps</span>
+  </a>
+  <a href="lsj_data.html" class="nav-item">
+    <span class="nm">Data &amp; sources</span>
+    <span class="ns">Datasets &amp; reports</span>
+  </a>
+  <div class="nav-spacer"></div>
+  <div class="nav-actions">
+    <a href="#" class="btn-nav-p">Share your input</a>
+    <a href="#" class="btn-nav-o">Read the full plan</a>
+    <a href="#" class="btn-nav-o">Download data</a>
+  </div>
+</nav>
+
+<div class="page-body">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-label">Navigation</div>
+    <a href="index.html" class="sb-link active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
+    </a>
+    <a href="lsj_goals.html" class="sb-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Plan goals
+    </a>
+    <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="sb-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+      Spatial explorer
+    </a>
+    <a href="lsj_data.html" class="sb-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Data &amp; sources
+    </a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hero-badge">Nine Key Element Watershed Plan</div>
+        <h1>Lower San Juan Watershed</h1>
+        <p class="hero-sub">Protecting water quality across the Colorado Plateau — grounded in science, local knowledge, and community priorities.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-hero-p">Read the full plan</a>
+          <a href="#" class="btn-hero-o">Share your input</a>
+        </div>
+      </div>
+      <div class="hero-disclaimer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#88b4cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Planning-level tool only. Not for regulatory determinations.</p>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+      <div class="breadcrumb">Home</div>
+      <div class="section-title">Welcome to the Lower San Juan Watershed Plan</div>
+      <p class="section-lead">This platform provides transparent access to the data, analyses, and stakeholder priorities guiding watershed protection and restoration. Use the navigation to explore plan goals, interactive maps, and underlying data.</p>
+
+      <div class="cards-label">Where would you like to start?</div>
+      <div class="cards-grid">
+
+        <a href="lsj_goals.html" class="nav-card">
+          <div class="card-hdr">
+            <div class="card-icon" style="background:rgba(34,181,160,.2);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#22b5a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <div class="card-title">Plan goals <span class="card-badge badge-start">Start here</span></div>
+              <div class="card-kicker">What we're working toward</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc">The water quality goals, restoration targets, and success measures guiding the plan across four priority areas.</p>
+            <span class="card-cta">Explore goals
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="nav-card">
+          <div class="card-hdr">
+            <div class="card-icon" style="background:rgba(168,207,224,.2);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#9dc8de" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            </div>
+            <div>
+              <div class="card-title">Spatial explorer <span class="card-badge badge-int">Interactive</span></div>
+              <div class="card-kicker">See it on a map</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc">Browse interactive maps of rivers, monitoring sites, land cover, and watershed boundaries.</p>
+            <span class="card-cta">Open map
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="lsj_data.html" class="nav-card">
+          <div class="card-hdr">
+            <div class="card-icon" style="background:rgba(192,82,42,.2);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e06030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="card-title">Data &amp; sources <span class="card-badge badge-dl">Download</span></div>
+              <div class="card-kicker">The numbers behind the plan</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc">Water quality monitoring data, lab results, and underlying datasets and reports.</p>
+            <span class="card-cta">Browse data
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- STATS STRIP -->
+      <div class="stats-strip">
+        <div class="stat-block">
+          <div class="stat-num">~2,300<sup>mi²</sup></div>
+          <div class="stat-lbl">Watershed area</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">4</div>
+          <div class="stat-lbl">Water quality goals</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">9</div>
+          <div class="stat-lbl">Plan elements</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">San Juan</div>
+          <div class="stat-lbl">Primary waterway</div>
+        </div>
+      </div>
+
+      <!-- GOAL MAPS SECTION -->
+      <div class="goal-maps-section">
+        <div class="goal-maps-label">Interactive maps</div>
+
+        <!-- Spatial Explorer featured card -->
+        <div class="featured-map">
+          <div class="fm-top">
+            <div>
+              <div class="fm-badge">Spatial data explorer</div>
+              <div class="fm-title">Watershed Spatial Data</div>
+              <div class="fm-sub">Stream network, watershed boundaries, land ownership, 303(d) listed segments, and baseline environmental context across the Lower San Juan.</div>
+            </div>
+            <div class="fm-icon">🗺️</div>
+          </div>
+          <div class="fm-body">
+            <div class="fm-tags">
+              <span class="fm-tag">Stream network</span>
+              <span class="fm-tag">303(d) segments</span>
+              <span class="fm-tag">Land ownership</span>
+              <span class="fm-tag">Watershed boundary</span>
+              <span class="fm-tag">Monitoring sites</span>
+            </div>
+            <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="fm-link">
+              Open spatial explorer
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Goal map cards 2×2 -->
+        <div class="goal-maps-label" style="margin-top:4px;">Goal-specific project maps</div>
+        <div class="goal-map-grid">
+
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-1" target="_blank">
+            <div class="gm-top">
+              <div class="gm-num" style="color:#1a6fa3;">1</div>
+              <div>
+                <div class="gm-label" style="color:#1a6fa3;">Goal 1 · Sediment &amp; salinity</div>
+                <div class="gm-title">Reduce erosion-driven sediment &amp; salinity loading</div>
+                <div class="gm-desc">Mancos Shale landscapes, ephemeral tributaries, and irrigated lands. TDS &amp; TSS priority reaches.</div>
+              </div>
+            </div>
+            <div class="gm-foot">
+              <div class="gm-tags">
+                <span class="gm-tag" style="background:#e8f4fb;color:#1a6fa3;">TSS</span>
+                <span class="gm-tag" style="background:#e8f4fb;color:#1a6fa3;">TDS</span>
+                <span class="gm-tag" style="background:#e8f4fb;color:#1a6fa3;">Erosion</span>
+              </div>
+              <span class="gm-cta" style="color:#1a6fa3;">View map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+          </a>
+
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-2" target="_blank">
+            <div class="gm-top">
+              <div class="gm-num" style="color:#b03020;">2</div>
+              <div>
+                <div class="gm-label" style="color:#b03020;">Goal 2 · Bacteria</div>
+                <div class="gm-title">Improve bacteria conditions for recreational &amp; aquatic life uses</div>
+                <div class="gm-desc">Livestock access, riparian buffers, and wastewater improvements on impaired reaches.</div>
+              </div>
+            </div>
+            <div class="gm-foot">
+              <div class="gm-tags">
+                <span class="gm-tag" style="background:#fdf0ee;color:#b03020;">E. coli</span>
+                <span class="gm-tag" style="background:#fdf0ee;color:#b03020;">Recreation</span>
+              </div>
+              <span class="gm-cta" style="color:#b03020;">View map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+          </a>
+
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-3" target="_blank">
+            <div class="gm-top">
+              <div class="gm-num" style="color:#7a3a9a;">3</div>
+              <div>
+                <div class="gm-label" style="color:#7a3a9a;">Goal 3 · Metals &amp; legacy sites</div>
+                <div class="gm-title">Address metals, selenium, &amp; radionuclide concerns</div>
+                <div class="gm-desc">Abandoned mine stabilization, passive treatment, and legacy site coordination.</div>
+              </div>
+            </div>
+            <div class="gm-foot">
+              <div class="gm-tags">
+                <span class="gm-tag" style="background:#f5eefb;color:#7a3a9a;">Selenium</span>
+                <span class="gm-tag" style="background:#f5eefb;color:#7a3a9a;">Uranium</span>
+              </div>
+              <span class="gm-cta" style="color:#7a3a9a;">View map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+          </a>
+
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-4" target="_blank">
+            <div class="gm-top">
+              <div class="gm-num" style="color:#2a7a50;">4</div>
+              <div>
+                <div class="gm-label" style="color:#2a7a50;">Goal 4 · Hydrology &amp; riparian</div>
+                <div class="gm-title">Improve hydrologic &amp; riparian function</div>
+                <div class="gm-desc">Baseflow restoration, tamarisk removal, and low-tech channel stabilization across Bears Ears and the San Juan corridor.</div>
+              </div>
+            </div>
+            <div class="gm-foot">
+              <div class="gm-tags">
+                <span class="gm-tag" style="background:#e6f5ee;color:#2a7a50;">Riparian</span>
+                <span class="gm-tag" style="background:#e6f5ee;color:#2a7a50;">Habitat</span>
+              </div>
+              <span class="gm-cta" style="color:#2a7a50;">View map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22b5a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="callout-title">Your knowledge matters</div>
+          <p class="callout-text">Observed something on the ground? Share water quality concerns, local knowledge, or emerging issues to help keep this plan current.</p>
+          <a href="#" class="btn-callout">Share observations</a>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </main>
+</div>
+
+</body>
+</html>
