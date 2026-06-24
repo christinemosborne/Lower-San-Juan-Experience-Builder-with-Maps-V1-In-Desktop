@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watershed Goals — Lower San Juan Nine Element Plan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: #F5F0E8;
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      background: #1B2A4A;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      height: 52px;
+    }
+    nav a {
+      color: #CBD5E8;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover { color: white; }
+    nav a.active { color: white; border-bottom-color: #2A9D8F; }
+    nav .nav-brand {
+      color: white;
+      font-family: 'Source Serif 4', serif;
+      font-size: 15px;
+      font-weight: 600;
+      border-bottom: none;
+      margin-right: auto;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: #1B2A4A;
+      padding: 2.5rem 2rem 2rem;
+      border-bottom: 3px solid #2A9D8F;
+    }
+    .page-header h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      font-size: 15px;
+      color: #CBD5E8;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    /* GRID */
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* GOAL CARD */
+    .goal-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #ddd6c8;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .goal-card-header {
+      background: #1B2A4A;
+      padding: 14px 18px;
+    }
+    .goal-card-header .goal-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2A9D8F;
+      margin-bottom: 4px;
+    }
+    .goal-card-header h2 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.35;
+    }
+
+    .goal-card-body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .goal-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #333;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #ece6d9;
+    }
+
+    /* SECTION LABELS */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0F6E56;
+      margin-bottom: 10px;
+    }
+    .section-label svg {
+      width: 13px;
+      height: 13px;
+      stroke: #0F6E56;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* LOCATION TAGS */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 11.5px;
+      color: #0F6E56;
+      background: #E1F5EE;
+      border: 1px solid #5DCAA5;
+      border-radius: 4px;
+      padding: 3px 9px;
+      line-height: 1.4;
+    }
+
+    /* MEASURES */
+    .measure-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .measure-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .measure-item svg {
+      width: 15px;
+      height: 15px;
+      stroke: #1B2A4A;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* PHOTO GRID */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .photo-tile {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #ddd6c8;
+    }
+    .photo-tile img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-placeholder {
+      width: 100%;
+      height: 90px;
+      background: #ece6d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-placeholder svg {
+      width: 24px;
+      height: 24px;
+      stroke: #888780;
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .photo-caption {
+      padding: 6px 8px;
+      background: #F5F0E8;
+    }
+    .photo-caption p {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1B2A4A;
+      margin: 0 0 1px;
+    }
+    .photo-caption span {
+      font-size: 10.5px;
+      color: #5F5E5A;
+    }
+
+    /* BUTTONS */
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    .btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      border: none;
+    }
+    .btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .btn-primary {
+      background: #1B2A4A;
+      color: white;
+    }
+    .btn-primary:hover { background: #253d6b; }
+    .btn-secondary {
+      background: #E1F5EE;
+      color: #0F6E56;
+      border: 1px solid #5DCAA5;
+    }
+    .btn-secondary:hover { background: #c2edd9; }
+
+    @media (max-width: 700px) {
+      .goals-grid { padding: 1rem; gap: 1rem; }
+      .card-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">Lower San Juan Watershed Plan</a>
+    <a href="index.html">Home</a>
+    <a href="lsj_goals.html" class="active">Goals</a>
+    <a href="lsj_data.html">Data</a>
+  </nav>
+
+  <div class="page-header">
+    <h1>Watershed Goals</h1>
+    <p>The Lower San Juan Nine Element Plan identifies four water quality goals. Each goal links directly to the interactive map and spatial data explorer for that topic.</p>
+  </div>
+
+  <div class="goals-grid">
+
+    <!-- GOAL 1 -->
+    <div class="goal-card">
+      <div class="goal-card-header">
+        <div class="goal-eyebrow">Goal 1 — Sediment &amp; Salinity</div>
+        <h2>Reduce Erosion and Salinity Loading</h2>
+      </div>
+      <div class="goal-card-body">
+        <p class="goal-desc">Excess sediment and salt enter the Lower San Juan from erosion-prone landscapes, irrigated fields, and naturally saline formations like Mancos Shale. This goal targets priority source areas to improve water clarity and protect aquatic life and agriculture.</p>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Where to look on the map
+          </div>
+          <div class="tag-row">
+            <span class="tag">McElmo Creek</span>
+            <span class="tag">Chinle Creek</span>
+            <span class="tag">Lower Montezuma Creek</span>
+            <span class="tag">Springs (Lay 2025)</span>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            What's being done
+          </div>
+          <div class="measure-list">
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M3 17l4-8 4 4 4-6 4 4"/><path d="M3 21h18"/></svg>
+              <span>Erosion control — check dams, rock structures, contour farming, cover crops</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2v6m0 0c0 0-3-1-3 3s3 3 3 3-3 1-3 4 3 4 3 4m0-14c0 0 3-1 3 3s-3 3-3 3"/></svg>
+              <span>Salinity reduction — irrigation efficiency, tailwater recovery, canal lining</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <span>Rangeland management — brush control, reseeding, grazing plans</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 12 7 9 7 4a5 5 0 0 1 10 0c0 5-5 8-5 8z"/></svg>
+              <span>Riparian restoration — grassed waterways, sediment basins, native replanting</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>Water quality monitoring at priority sediment and salinity source areas</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Priority areas
+          </div>
+          <div class="photo-grid">
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>McElmo Creek</p><span>Salinity runoff hotspot</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Chinle Creek</p><span>Mancos Shale landscape</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Lower Montezuma Creek</p><span>Sediment below irrigated lands</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Springs</p><span>NHD & Lay, 2025 locations</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655?views=Goal-1" target="_blank" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            Open Goal 1 Map
+          </a>
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer?views=Goal-1" target="_blank" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Explore Data
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOAL 2 -->
+    <div class="goal-card">
+      <div class="goal-card-header">
+        <div class="goal-eyebrow">Goal 2 — Bacteria</div>
+        <h2>Improve Conditions for Recreation and Cultural Uses</h2>
+      </div>
+      <div class="goal-card-body">
+        <p class="goal-desc">Elevated bacteria levels — primarily from livestock and failing septic systems — limit safe swimming, fishing, and cultural practices along key reaches. This goal supports public health and safe use of the San Juan River and its tributaries through targeted livestock and wastewater management.</p>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Where to look on the map
+          </div>
+          <div class="tag-row">
+            <span class="tag">San Juan River — Bluff to Mexican Hat</span>
+            <span class="tag">Lower Montezuma Creek</span>
+            <span class="tag">Recapture Creek</span>
+            <span class="tag">Montezuma tributaries</span>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            What's being done
+          </div>
+          <div class="measure-list">
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+              <span>Livestock management — riparian fencing, off-stream water tanks, rotational grazing</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+              <span>Waste management — manure handling practices and seasonal grazing exclusion</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 12 7 9 7 4a5 5 0 0 1 10 0c0 5-5 8-5 8z"/></svg>
+              <span>Stream buffers — riparian filter strips to reduce runoff reaching waterways</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>Septic system upgrades — maintenance programs, community leachfields, sewer projects</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.88-1.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Public outreach and education on water quality and safe recreation</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Priority areas
+          </div>
+          <div class="photo-grid">
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>San Juan River corridor</p><span>Bluff to Mexican Hat</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Lower Montezuma Creek</p><span>Communities & grazing lands</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Recapture Creek</p><span>Livestock-dense tributaries</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Montezuma tributaries</p><span>Livestock-dense areas</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655?views=Goal-2" target="_blank" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            Open Goal 2 Map
+          </a>
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer?views=Goal-2" target="_blank" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Explore Data
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOAL 3 -->
+    <div class="goal-card">
+      <div class="goal-card-header">
+        <div class="goal-eyebrow">Goal 3 — Metals &amp; Legacy Sites</div>
+        <h2>Address Metals, Selenium &amp; Radionuclides from Legacy Sources</h2>
+      </div>
+      <div class="goal-card-body">
+        <p class="goal-desc">Decades of uranium mining, oil field operations, and naturally occurring selenium create localized but serious water quality risks in the Lower San Juan. This goal focuses on reducing pollutant loading to protect aquatic life, drinking water sources, and communities near legacy sites.</p>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Where to look on the map
+          </div>
+          <div class="tag-row">
+            <span class="tag">Lower Montezuma Creek</span>
+            <span class="tag">Four Corners / Lower San Juan</span>
+            <span class="tag">White Mesa Mill area</span>
+            <span class="tag">Aneth &amp; Montezuma Valley</span>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            What's being done
+          </div>
+          <div class="measure-list">
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <span>Passive treatment — constructed wetlands and bioreactors to filter contaminated water</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M2 20h20M6 20V10M12 20V4M18 20v-6"/></svg>
+              <span>Mine reclamation — stabilizing tailings, regrading, revegetating, installing diversion channels</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2v6m0 0c0 0-3-1-3 3s3 3 3 3-3 1-3 4 3 4 3 4m0-14c0 0 3-1 3 3s-3 3-3 3"/></svg>
+              <span>Irrigation management — converting flood to drip irrigation, tailwater retention basins</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+              <span>Soil amendments — gypsum and organic treatments to reduce selenium mobility</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Multi-agency coordination — mine cleanup, monitoring, interagency partnerships</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Priority areas
+          </div>
+          <div class="photo-grid">
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Lower Montezuma Creek</p><span>Selenium-impaired reaches</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Four Corners area</p><span>Abandoned uranium mines</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>White Mesa Mill</p><span>Contaminated soil & groundwater</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Aneth & Montezuma Valley</p><span>Oil field brine spill risks</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655?views=Goal-3" target="_blank" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            Open Goal 3 Map
+          </a>
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer?views=Goal-3" target="_blank" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Explore Data
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOAL 4 -->
+    <div class="goal-card">
+      <div class="goal-card-header">
+        <div class="goal-eyebrow">Goal 4 — Hydrology &amp; Riparian</div>
+        <h2>Restore Streamflow, Riparian Habitat &amp; Watershed Resilience</h2>
+      </div>
+      <div class="goal-card-body">
+        <p class="goal-desc">Altered hydrology, invasive plants, and degraded riparian areas reduce the watershed's ability to store water, support native habitat, and buffer against drought and flood. This goal works across jurisdictions to restore baseflows, remove invasive species, and reconnect streams to their floodplains.</p>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            Where to look on the map
+          </div>
+          <div class="tag-row">
+            <span class="tag">Bears Ears canyon systems</span>
+            <span class="tag">Abajo Mountains headwaters</span>
+            <span class="tag">San Juan River riparian corridors</span>
+            <span class="tag">Private irrigated lands</span>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            What's being done
+          </div>
+          <div class="measure-list">
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M2 12h20M2 12c0-4 4-8 10-8s10 4 10 8M2 12c0 4 4 8 10 8s10-4 10-8"/></svg>
+              <span>Stream restoration — beaver dam analogs and floodplain reconnection to slow and spread water</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2L8 7H5l7 10 7-10h-3L12 2z"/><path d="M12 17v5"/></svg>
+              <span>Spring and wetland protection — fencing, wet meadow rehab, livestock watering alternatives</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7M6 9v3a2 2 0 0 0 2 2h3"/></svg>
+              <span>Invasive species removal — tamarisk and Russian olive clearing along river corridors</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 12 7 9 7 4a5 5 0 0 1 10 0c0 5-5 8-5 8z"/></svg>
+              <span>Native replanting — revegetating cleared areas with native riparian species</span>
+            </div>
+            <div class="measure-item">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Interagency partnerships — coordinated forest and fuels management in priority watersheds</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Priority areas
+          </div>
+          <div class="photo-grid">
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Bears Ears canyons</p><span>Cottonwood Wash, Arch Canyon</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Abajo Mountains</p><span>Headwater streams</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>San Juan River corridor</p><span>Tamarisk-invaded reaches</span></div>
+            </div>
+            <div class="photo-tile">
+              <div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <div class="photo-caption"><p>Private irrigated lands</p><span>Agricultural water management</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655?views=Goal-4" target="_blank" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            Open Goal 4 Map
+          </a>
+          <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer?views=Goal-4" target="_blank" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Explore Data
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
