@@ -14,12 +14,12 @@
   --rust:#c0522a;--rust-light:#e06030;
   --white:#ffffff;--muted:#5a7080;--text:#0d2b45;
 }
-html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);background:#f9f8f5;font-size:18px;}
+html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);background:#f9f8f5;}
 
 /* ── TOP BAR ── */
 .topbar{background:var(--navy);padding:9px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--teal-bright);}
 .topbar-left{display:flex;align-items:center;gap:18px;}
-.topbar .dept{color:#e8f4fb;font-size:15px;font-weight:700;}
+.topbar .dept{color:#e8f4fb;font-size:13px;font-weight:700;}
 .topbar .div{color:#a8cfe0;font-size:11px;}
 .topbar-tag{background:var(--teal-bright);color:var(--navy);font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
 .topbar-right{display:flex;align-items:center;gap:22px;}
@@ -35,13 +35,13 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .nav-item{display:flex;flex-direction:column;padding:11px 22px;text-decoration:none;border-right:1px solid rgba(255,255,255,.1);transition:background .15s;}
 .nav-item:hover{background:rgba(255,255,255,.08);}
 .nav-item.active{background:rgba(34,181,160,.18);border-bottom:3px solid var(--teal-bright);}
-.nav-item .nm{color:#fff;font-size:15px;font-weight:700;}
-.nav-item .ns{color:#9dc8de;font-size:13px;margin-top:2px;}
+.nav-item .nm{color:#fff;font-size:13px;font-weight:700;}
+.nav-item .ns{color:#9dc8de;font-size:11px;margin-top:2px;}
 .nav-spacer{flex:1;}
 .nav-actions{display:flex;align-items:center;gap:8px;padding:0 20px;}
-.btn-nav-p{background:var(--teal);color:#fff;border:none;padding:7px 15px;border-radius:4px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;white-space:nowrap;}
+.btn-nav-p{background:var(--teal);color:#fff;border:none;padding:7px 15px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;white-space:nowrap;}
 .btn-nav-p:hover{background:var(--teal-light);}
-.btn-nav-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:6px 14px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
+.btn-nav-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:6px 14px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
 .btn-nav-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
 
 /* ── PAGE LAYOUT ── */
@@ -50,7 +50,7 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 /* ── SIDEBAR ── */
 .sidebar{width:200px;flex-shrink:0;background:var(--sand);border-right:1px solid var(--sand-dark);padding:20px 0;}
 .sb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8f9a;padding:0 16px 10px;}
-.sb-link{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:15px;font-weight:500;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
+.sb-link{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:13px;font-weight:500;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
 .sb-link:hover{background:var(--sand-dark);color:var(--navy);}
 .sb-link.active{border-left-color:var(--teal-bright);background:rgba(34,181,160,.08);color:var(--teal);font-weight:700;}
 .sb-link svg{flex-shrink:0;width:14px;height:14px;}
@@ -62,8 +62,8 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .hero{background:var(--navy-mid);padding:36px 40px 32px;display:flex;align-items:center;gap:48px;border-bottom:2px solid rgba(255,255,255,.06);}
 .hero-text{flex:1;min-width:0;}
 .hero-badge{display:inline-block;background:rgba(34,181,160,.2);color:var(--teal-bright);border:1px solid rgba(34,181,160,.4);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:3px;margin-bottom:12px;}
-.hero h1{font-family:'Source Serif 4',serif;font-size:36px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
-.hero-sub{font-size:16px;color:#b8d8e8;line-height:1.65;margin-bottom:20px;max-width:500px;}
+.hero h1{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
+.hero-sub{font-size:14px;color:#b8d8e8;line-height:1.65;margin-bottom:20px;max-width:500px;}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
 .btn-hero-p{background:var(--teal-bright);color:var(--navy);border:none;padding:11px 22px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;}
 .btn-hero-p:hover{background:#29ccb5;}
@@ -76,8 +76,8 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 /* ── CONTENT ── */
 .content{flex:1;padding:32px 40px;}
 .breadcrumb{font-size:12px;color:#7a8f9a;margin-bottom:16px;}
-.section-title{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.section-lead{font-size:16px;color:#4a6070;line-height:1.7;margin-bottom:26px;max-width:620px;}
+.section-title{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.section-lead{font-size:14px;color:#4a6070;line-height:1.7;margin-bottom:26px;max-width:620px;}
 .cards-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:13px;}
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;}
 .nav-card{border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:all .18s;background:#fff;}
@@ -85,10 +85,10 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .card-hdr{background:var(--navy);padding:13px 13px 9px;display:flex;align-items:flex-start;gap:10px;}
 .card-icon{width:32px;height:32px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .card-icon svg{width:16px;height:16px;}
-.card-title{color:#fff;font-size:15px;font-weight:700;line-height:1.2;margin-bottom:2px;}
+.card-title{color:#fff;font-size:13px;font-weight:700;line-height:1.2;margin-bottom:2px;}
 .card-kicker{color:#9dc8de;font-size:10px;}
 .card-body{padding:12px 14px;flex:1;}
-.card-desc{font-size:14px;color:#4a6070;line-height:1.55;margin-bottom:11px;}
+.card-desc{font-size:12.5px;color:#4a6070;line-height:1.55;margin-bottom:11px;}
 .card-cta{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;}
 .card-badge{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700;float:right;margin-top:1px;}
 .badge-start{background:rgba(34,181,160,.15);color:var(--teal);}
@@ -110,8 +110,8 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .featured-map:hover{border-color:var(--teal);}
 .fm-top{background:var(--navy);padding:16px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
 .fm-badge{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:rgba(34,181,160,.25);color:var(--teal-bright);border:1px solid rgba(34,181,160,.4);display:inline-block;margin-bottom:7px;}
-.fm-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
-.fm-sub{font-size:14px;color:#9dc8de;line-height:1.55;max-width:440px;}
+.fm-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
+.fm-sub{font-size:12px;color:#9dc8de;line-height:1.55;max-width:440px;}
 .fm-icon{font-size:2rem;opacity:.5;flex-shrink:0;}
 .fm-body{padding:14px 20px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .fm-tags{display:flex;gap:6px;flex-wrap:wrap;}
@@ -124,8 +124,8 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .gm-top{padding:13px 16px 10px;display:flex;align-items:flex-start;gap:10px;}
 .gm-num{font-size:24px;font-weight:700;line-height:1;flex-shrink:0;width:32px;}
 .gm-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
-.gm-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:4px;}
-.gm-desc{font-size:13px;color:#4a6070;line-height:1.55;}
+.gm-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:4px;}
+.gm-desc{font-size:11.5px;color:#4a6070;line-height:1.55;}
 .gm-foot{margin-top:auto;padding:8px 16px;border-top:1px solid var(--sand-dark);background:var(--sand);display:flex;align-items:center;justify-content:space-between;}
 .gm-tags{display:flex;gap:5px;}
 .gm-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;}
@@ -141,64 +141,6 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .callout-text{color:#a8c8d8;font-size:13px;line-height:1.55;margin-bottom:11px;}
 .btn-callout{background:var(--teal-bright);color:var(--navy);border:none;padding:8px 18px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:background .15s;}
 .btn-callout:hover{background:#29ccb5;}
-@media (min-width: 1400px) {
-  .nav-item .nm { font-size: 17px; }
-  .nav-item .ns { font-size: 14px; }
-  .hero h1 { font-size: 42px; }
-  .hero-sub { font-size: 18px; }
-  .section-title { font-size: 26px; }
-  .section-lead { font-size: 18px; }
-  .card-title { font-size: 17px; }
-  .card-desc { font-size: 16px; }
-  .gm-title { font-size: 17px; }
-  .gm-desc { font-size: 15px; }
-  .fm-title { font-size: 20px; }
-  .fm-sub { font-size: 16px; }
-  .sb-link { font-size: 17px; }
-  .btn-nav-p { font-size: 16px; }
-  .btn-nav-o { font-size: 16px; }
-  .btn-hero-p { font-size: 16px; }
-  .btn-hero-o { font-size: 16px; }
-  .card-cta { font-size: 14px; }
-  .gm-cta { font-size: 13px; }
-  .fm-link { font-size: 15px; }
-  .btn-callout { font-size: 16px; } 
-  .cards-label { font-size: 13px; }
-  .card-title { font-size: 17px; }
-  .card-kicker { font-size: 13px; }
-  .card-desc { font-size: 16px; }
-  .goal-maps-label { font-size: 13px; }
-  .gm-label { font-size: 12px; }
-  .gm-title { font-size: 17px; }
-  .gm-desc { font-size: 15px; }
-  .stat-num { font-size: 28px; }
-  .stat-lbl { font-size: 13px; }
-  .card-hdr { padding: 16px 16px 12px; }
-  .card-title { font-size: 18px; line-height: 1.4; }
-  .card-kicker { font-size: 14px; margin-top: 4px; }
-  .gm-label { font-size: 13px; }
-  .gm-title { font-size: 18px; }
-  .gm-desc { font-size: 16px; }
-  .gm-foot { padding: 12px 16px; }
-  .gm-cta { font-size: 14px; }
-  .gm-tag { font-size: 12px; padding: 3px 9px; } 
-  .goal-maps-label { font-size: 16px; letter-spacing: 0.08em; }
-  .gm-label { font-size: 15px; font-weight: 800; }
-  .gm-tag { font-size: 13px; padding: 4px 10px; }
-  .callout-title { font-size: 22px; }
-  .callout-text { font-size: 17px; }
-  .btn-callout { font-size: 18px; padding: 12px 28px; }
-  .topbar { padding: 12px 28px; }
-  .topbar .dept { font-size: 16px; }
-  .topbar .div { font-size: 14px; }
-  .topbar-tag { font-size: 13px; padding: 5px 14px; }
-  .wname { font-size: 16px; }
-  .wlabel { font-size: 13px; }
-  .topbar-help { font-size: 15px; }
-  .nav-actions { gap: 12px; padding: 0 24px; }
-  .btn-nav-p { font-size: 16px; padding: 10px 20px; }
-  .btn-nav-o { font-size: 16px; padding: 9px 18px; }
-}
 </style>
 </head>
 <body>
@@ -235,17 +177,17 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
     <span class="nm">Plan goals</span>
     <span class="ns">Targets &amp; outcomes</span>
   </a>
-  <a href="lsj_goal_panels.html" class="nav-item">
-    <span class="nm">Goal explorer</span>
-    <span class="ns">Maps &amp; priorities</span>
-  </a>
-  <a href="https://experience.arcgis.com/experience/e397598183d1426ebd9e5e85a813ff23" target="_blank" class="nav-item">
+  <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="nav-item">
     <span class="nm">Spatial explorer ↗</span>
     <span class="ns">Interactive maps</span>
   </a>
   <a href="lsj_data.html" class="nav-item">
     <span class="nm">Data &amp; sources</span>
     <span class="ns">Datasets &amp; reports</span>
+  </a>
+  <a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" class="nav-item">
+    <span class="nm">Project Funding Guide ↗</span>
+    <span class="ns">Grants &amp; programs</span>
   </a>
   <div class="nav-spacer"></div>
   <div class="nav-actions">
@@ -268,17 +210,17 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       Plan goals
     </a>
-    <a href="lsj_goal_panels.html" class="sb-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      Goal explorer
-    </a>
-    <a href="https://experience.arcgis.com/experience/e397598183d1426ebd9e5e85a813ff23" target="_blank" class="sb-link">
+    <a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="sb-link">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
       Spatial explorer
     </a>
     <a href="lsj_data.html" class="sb-link">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       Data &amp; sources
+    </a>
+    <a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" class="sb-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      Project Funding Guide
     </a>
   </aside>
 
@@ -367,6 +309,24 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 
       </div>
 
+      <a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" class="nav-card" style="margin-top:-14px;margin-bottom:28px">
+          <div class="card-hdr">
+            <div class="card-icon" style="background:rgba(192,82,42,.2);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e06030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div>
+              <div class="card-title">Project Funding Guide <span class="card-badge badge-dl">Grants</span></div>
+              <div class="card-kicker">Match your project to funding</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc">Step-by-step guide to matching community and watershed projects to federal, tribal, and state funding programs.</p>
+            <span class="card-cta">Open guide ↗
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
+        </a>
+
       <!-- STATS STRIP -->
       <div class="stats-strip">
         <div class="stat-block">
@@ -420,7 +380,7 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
         <div class="goal-maps-label" style="margin-top:4px;">Goal-specific project maps</div>
         <div class="goal-map-grid">
 
-          <a class="gm-card" href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=512a1b5a86524f42a2539a80ece3237b" target="_blank">
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-1" target="_blank">
             <div class="gm-top">
               <div class="gm-num" style="color:#1a6fa3;">1</div>
               <div>
@@ -439,7 +399,7 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
             </div>
           </a>
 
-          <a class="gm-card" href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=6be3351d0f3b4d7b8f6474158f82eb83" target="_blank">
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-2" target="_blank">
             <div class="gm-top">
               <div class="gm-num" style="color:#b03020;">2</div>
               <div>
@@ -457,7 +417,7 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
             </div>
           </a>
 
-          <a class="gm-card" href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=8bdfbec112d540a58ed637b6f5153bcf" target="_blank">
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-3" target="_blank">
             <div class="gm-top">
               <div class="gm-num" style="color:#7a3a9a;">3</div>
               <div>
@@ -475,7 +435,7 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
             </div>
           </a>
 
-          <a class="gm-card" href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=d3ba466923b044b690b82ea50c574db8" target="_blank">
+          <a class="gm-card" href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Priority-Geographies?views=Goal-4" target="_blank">
             <div class="gm-top">
               <div class="gm-num" style="color:#2a7a50;">4</div>
               <div>
