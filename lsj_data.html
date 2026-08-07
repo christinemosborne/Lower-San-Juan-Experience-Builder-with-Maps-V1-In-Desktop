@@ -11,7 +11,7 @@
   :root {
     /* NOTE: replace with the exact variables already defined on the live site
        (navy / teal / sand system) if these don't match precisely. */
-    --navy-900: #16303F;
+    --navy-900: #274a63;
     --navy-800: #1B3A4B;
     --navy-700: #1F4A5E;
     --teal-600: #2E7D7B;
@@ -32,6 +32,7 @@
   }
 
   * { box-sizing: border-box; }
+  html { font-size: 18px; } /* bumps all rem-based type ~12.5% larger site-wide */
   body {
     margin: 0;
     font-family: var(--font-body);
@@ -48,7 +49,7 @@
     font-size: 0.82rem;
   }
   .util-inner {
-    max-width: 1180px;
+    max-width: 1040px;
     margin: 0 auto;
     padding: 8px 24px;
     display: flex;
@@ -75,7 +76,7 @@
     border-bottom: 1px solid var(--line);
   }
   .header-inner {
-    max-width: 1180px;
+    max-width: 1040px;
     margin: 0 auto;
     padding: 16px 24px;
     display: flex;
@@ -122,12 +123,12 @@
     border-bottom: 1px solid var(--line);
   }
   .nav-inner {
-    max-width: 1180px;
+    max-width: 1040px;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
     gap: 4px;
-    overflow-x: auto;
+    flex-wrap: wrap;
   }
   .nav-inner a {
     display: flex;
@@ -147,10 +148,19 @@
     border-bottom-color: var(--teal-600);
   }
   .nav-inner a .ext { font-size: 0.72rem; opacity: 0.7; }
+  .nav-inner a { position: relative; }
+  .nav-inner a .nav-tip {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    margin-top: 6px; background: var(--navy-900); color: var(--white);
+    font-size: 0.7rem; font-weight: 500; padding: 5px 9px; border-radius: 5px;
+    white-space: nowrap; opacity: 0; pointer-events: none;
+    transition: opacity 0.15s ease; z-index: 20;
+  }
+  .nav-inner a:hover .nav-tip, .nav-inner a:focus-visible .nav-tip { opacity: 1; }
 
   /* ============ HERO ============ */
   .hero {
-    max-width: 1180px;
+    max-width: 1040px;
     margin: 0 auto;
     padding: 40px 24px 0;
   }
@@ -196,7 +206,7 @@
 
   /* ============ PAGE BODY ============ */
   .page {
-    max-width: 1180px;
+    max-width: 1040px;
     margin: 0 auto;
     padding: 0 24px 100px;
   }
@@ -424,7 +434,7 @@
 
   /* ============ FOOTER CALLOUT ============ */
   .callout {
-    max-width: 1180px;
+    max-width: 1040px;
     margin: 0 auto 60px;
     padding: 0 24px;
   }
@@ -475,12 +485,12 @@
 
   <nav class="main-nav">
     <div class="nav-inner">
-      <a href="index.html">Home</a>
-      <a href="lsj_goals.html">Plan goals</a>
-      <a href="lsj_goal_panels.html">Goal explorer</a>
-      <a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=1e61dbab8ebc446da952a8bb4c6e6824" target="_blank" rel="noopener">Spatial explorer <span class="ext">↗</span></a>
-      <a href="lsj_data.html" class="active">Data &amp; sources</a>
-      <a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" rel="noopener">Project Funding Guide <span class="ext">↗</span></a>
+      <a href="index.html">Home<span class="nav-tip">Overview &amp; about</span></a>
+      <a href="lsj_goals.html">Plan goals<span class="nav-tip">Targets &amp; outcomes</span></a>
+      <a href="lsj_goal_panels.html">Goal explorer<span class="nav-tip">Maps &amp; priorities</span></a>
+      <a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=1e61dbab8ebc446da952a8bb4c6e6824" target="_blank" rel="noopener">Spatial explorer <span class="ext">↗</span><span class="nav-tip">Interactive maps</span></a>
+      <a href="lsj_data.html" class="active">Data &amp; sources<span class="nav-tip">Datasets &amp; reports</span></a>
+      <a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" rel="noopener">Project Funding Guide <span class="ext">↗</span><span class="nav-tip">Grants &amp; programs</span></a>
     </div>
   </nav>
 
