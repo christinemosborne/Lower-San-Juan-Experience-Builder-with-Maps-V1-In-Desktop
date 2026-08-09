@@ -8,82 +8,82 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
---navy:#274a63;--navy-mid:#1a3f5c;--navy-light:#2a5275;
+--navy:#0d2b45;--navy-mid:#1a3f5c;--navy-light:#2a5275;
 --teal:#0e6b6b;--teal-light:#1a8f8f;--teal-bright:#22b5a0;
 --sand:#f4f1ea;--sand-dark:#e8e3d6;
 --rust:#c0522a;--rust-light:#e06030;
 --white:#ffffff;--muted:#5a7080;--text:#0d2b45;
 }
-html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);background:#FAF7EF;}
+html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);background:#f9f8f5;}
 /* ── TOP BAR ── */
 .topbar{background:var(--navy);padding:9px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--teal-bright);}
 .topbar-left{display:flex;align-items:center;gap:18px;}
-.topbar .dept{color:#e8f4fb;font-size:15px;font-weight:700;}
-.topbar .div{color:#a8cfe0;font-size:12px;}
-.topbar-tag{background:var(--teal-bright);color:var(--navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
+.topbar .dept{color:#e8f4fb;font-size:13px;font-weight:700;}
+.topbar .div{color:#a8cfe0;font-size:11px;}
+.topbar-tag{background:var(--teal-bright);color:var(--navy);font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
 .topbar-right{display:flex;align-items:center;gap:22px;}
 .watershed-pill{display:flex;align-items:center;gap:7px;}
-.wlabel{color:#88b4cc;font-size:11px;text-transform:uppercase;letter-spacing:.08em;}
+.wlabel{color:#88b4cc;font-size:10px;text-transform:uppercase;letter-spacing:.08em;}
 .wsep{color:#4a7090;}
-.wname{color:#fff;font-size:15px;font-weight:600;}
-.topbar-help{color:#a8cfe0;font-size:13px;text-decoration:none;display:flex;align-items:center;gap:5px;}
+.wname{color:#fff;font-size:13px;font-weight:600;}
+.topbar-help{color:#a8cfe0;font-size:12px;text-decoration:none;display:flex;align-items:center;gap:5px;}
 .topbar-help:hover{color:#fff;}
 /* ── MAIN NAV ── */
 .main-nav{background:var(--navy-light);display:flex;align-items:stretch;border-bottom:2px solid rgba(255,255,255,.08);}
-.nav-item{display:flex;flex-direction:column;padding:11px 22px;text-decoration:none;border-right:1px solid rgba(255,255,255,.1);transition:background .15s;}
+.nav-item{display:flex;flex-direction:column;justify-content:center;padding:11px 22px;text-decoration:none;border-right:1px solid rgba(255,255,255,.1);transition:background .15s;}
 .nav-item:hover{background:rgba(255,255,255,.08);}
 .nav-item.active{background:rgba(34,181,160,.18);border-bottom:3px solid var(--teal-bright);}
-.nav-item .nm{color:#fff;font-size:18px;font-weight:700;}
-.nav-item .ns{color:#9dc8de;font-size:15px;margin-top:2px;}
+.nav-item .nm{color:#fff;font-size:16px;font-weight:700;}
+.nav-item .ns{color:#9dc8de;font-size:13px;margin-top:2px;}
 .nav-spacer{flex:1;}
 .nav-actions{display:flex;align-items:center;gap:8px;padding:0 20px;}
-.btn-nav-p{background:var(--teal);color:#fff;border:none;padding:7px 15px;border-radius:4px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;white-space:nowrap;}
+.btn-nav-p{background:var(--teal);color:#fff;border:none;padding:7px 15px;border-radius:4px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;white-space:nowrap;}
 .btn-nav-p:hover{background:var(--teal-light);}
-.btn-nav-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:6px 14px;border-radius:4px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
+.btn-nav-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:6px 14px;border-radius:4px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
 .btn-nav-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
 /* ── PAGE LAYOUT ── */
 .page-body{display:flex;min-height:calc(100vh - 96px);}
 /* ── SIDEBAR ── */
 .sidebar{width:200px;flex-shrink:0;background:var(--sand);border-right:1px solid var(--sand-dark);padding:20px 0;}
-.sb-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8f9a;padding:0 16px 10px;}
-.sb-link{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:17px;font-weight:500;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
+.sb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8f9a;padding:0 16px 10px;}
+.sb-link{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:15px;font-weight:500;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
 .sb-link:hover{background:var(--sand-dark);color:var(--navy);}
 .sb-link.active{border-left-color:var(--teal-bright);background:rgba(34,181,160,.08);color:var(--teal);font-weight:700;}
 .sb-link svg{flex-shrink:0;width:14px;height:14px;}
 /* ── MAIN ── */
 .main{flex:1;display:flex;flex-direction:column;min-width:0;}
 /* ── HERO ── */
-.hero{background:var(--sand-dark);padding:36px 40px 32px;display:flex;align-items:center;gap:48px;border-bottom:2px solid rgba(13,43,69,.08);max-width:1040px;margin:0 auto;box-sizing:border-box;}
+.hero{background:var(--navy-mid);padding:36px 40px 32px;display:flex;align-items:center;gap:48px;border-bottom:2px solid rgba(255,255,255,.06);}
 .hero-text{flex:1;min-width:0;}
-.hero-badge{display:inline-block;background:rgba(14,107,107,.12);color:var(--teal);border:1px solid rgba(14,107,107,.35);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:3px;margin-bottom:12px;}
-.hero h1{font-family:'Source Serif 4',serif;font-size:40px;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:10px;}
-.hero-sub{font-size:18px;color:#4a6070;line-height:1.65;margin-bottom:20px;max-width:500px;}
+.hero-badge{display:inline-block;background:rgba(34,181,160,.2);color:var(--teal-bright);border:1px solid rgba(34,181,160,.4);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:3px;margin-bottom:12px;}
+.hero h1{font-family:'Source Serif 4',serif;font-size:36px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
+.hero-sub{font-size:16px;color:#b8d8e8;line-height:1.65;margin-bottom:20px;max-width:500px;}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
-.btn-hero-p{background:var(--teal-bright);color:var(--navy);border:none;padding:11px 22px;border-radius:4px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;}
+.btn-hero-p{background:var(--teal-bright);color:var(--navy);border:none;padding:11px 22px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:background .15s;}
 .btn-hero-p:hover{background:#29ccb5;}
-.btn-hero-o{background:transparent;color:var(--navy);border:2px solid rgba(13,43,69,.35);padding:9px 20px;border-radius:4px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;}
-.btn-hero-o:hover{border-color:var(--navy);background:rgba(13,43,69,.06);}
-.hero-disclaimer{flex-shrink:0;background:rgba(255,255,255,.55);border:1px solid rgba(13,43,69,.12);border-radius:6px;padding:14px 18px;max-width:210px;}
+.btn-hero-o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45);padding:9px 20px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;}
+.btn-hero-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+.hero-disclaimer{flex-shrink:0;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:14px 18px;max-width:210px;}
 .hero-disclaimer svg{display:block;margin-bottom:7px;}
-.hero-disclaimer p{color:#5a7080;font-size:12px;line-height:1.55;font-style:italic;}
+.hero-disclaimer p{color:#88b4cc;font-size:11px;line-height:1.55;font-style:italic;}
 /* ── CONTENT ── */
-.content{flex:1;padding:32px 40px;max-width:1040px;margin:0 auto;width:100%;}
-.breadcrumb{font-size:13px;color:#7a8f9a;margin-bottom:16px;}
-.section-title{font-size:25px;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.section-lead{font-size:18px;color:#4a6070;line-height:1.7;margin-bottom:26px;max-width:620px;}
-.cards-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:13px;}
+.content{flex:1;padding:32px 40px;}
+.breadcrumb{font-size:12px;color:#7a8f9a;margin-bottom:16px;}
+.section-title{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.section-lead{font-size:16px;color:#4a6070;line-height:1.7;margin-bottom:26px;max-width:620px;}
+.cards-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:13px;}
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;}
 .nav-card{border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:all .18s;background:#fff;}
 .nav-card:hover{border-color:var(--teal);box-shadow:0 3px 14px rgba(14,107,107,.1);transform:translateY(-2px);}
 .card-hdr{background:var(--navy);padding:13px 13px 9px;display:flex;align-items:flex-start;gap:10px;}
 .card-icon{width:32px;height:32px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .card-icon svg{width:16px;height:16px;}
-.card-title{color:#fff;font-size:17px;font-weight:700;line-height:1.2;margin-bottom:2px;}
-.card-kicker{color:#9dc8de;font-size:11px;}
+.card-title{color:#fff;font-size:15px;font-weight:700;line-height:1.2;margin-bottom:2px;}
+.card-kicker{color:#9dc8de;font-size:10px;}
 .card-body{padding:12px 14px;flex:1;}
-.card-desc{font-size:16px;color:#4a6070;line-height:1.55;margin-bottom:11px;}
-.card-cta{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;}
-.card-badge{font-size:10px;padding:2px 7px;border-radius:3px;font-weight:700;float:right;margin-top:1px;}
+.card-desc{font-size:14px;color:#4a6070;line-height:1.55;margin-bottom:11px;}
+.card-cta{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;}
+.card-badge{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:700;float:right;margin-top:1px;}
 .badge-start{background:rgba(34,181,160,.15);color:var(--teal);}
 .badge-int{background:rgba(13,43,69,.1);color:var(--navy);}
 .badge-dl{background:rgba(192,82,42,.12);color:var(--rust);}
@@ -91,45 +91,45 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .stats-strip{display:flex;background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;margin-bottom:28px;}
 .stat-block{flex:1;padding:14px 20px;border-right:1px solid var(--sand-dark);}
 .stat-block:last-child{border-right:none;}
-.stat-num{font-size:25px;font-weight:700;color:var(--navy);line-height:1;}
-.stat-num sup{font-size:13px;font-weight:600;vertical-align:super;}
-.stat-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:3px;}
+.stat-num{font-size:22px;font-weight:700;color:var(--navy);line-height:1;}
+.stat-num sup{font-size:12px;font-weight:600;vertical-align:super;}
+.stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:3px;}
 /* ── GOAL MAP CARDS ── */
 .goal-maps-section{margin-bottom:28px;}
-.goal-maps-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:13px;}
+.goal-maps-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:13px;}
 .featured-map{background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;margin-bottom:14px;transition:border-color .18s;}
 .featured-map:hover{border-color:var(--teal);}
 .fm-top{background:var(--navy);padding:16px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
-.fm-badge{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:rgba(34,181,160,.25);color:var(--teal-bright);border:1px solid rgba(34,181,160,.4);display:inline-block;margin-bottom:7px;}
-.fm-title{font-size:19px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
-.fm-sub{font-size:16px;color:#9dc8de;line-height:1.55;max-width:440px;}
+.fm-badge{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:rgba(34,181,160,.25);color:var(--teal-bright);border:1px solid rgba(34,181,160,.4);display:inline-block;margin-bottom:7px;}
+.fm-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
+.fm-sub{font-size:14px;color:#9dc8de;line-height:1.55;max-width:440px;}
 .fm-icon{font-size:2rem;opacity:.5;flex-shrink:0;}
 .fm-body{padding:14px 20px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .fm-tags{display:flex;gap:6px;flex-wrap:wrap;}
-.fm-tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;background:var(--sand);color:#4a6070;border:1px solid var(--sand-dark);}
-.fm-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:8px 16px;border-radius:4px;background:var(--teal);color:#fff;text-decoration:none;transition:background .15s;white-space:nowrap;flex-shrink:0;}
+.fm-tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:3px;background:var(--sand);color:#4a6070;border:1px solid var(--sand-dark);}
+.fm-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:8px 16px;border-radius:4px;background:var(--teal);color:#fff;text-decoration:none;transition:background .15s;white-space:nowrap;flex-shrink:0;}
 .fm-link:hover{background:var(--teal-light);}
 .goal-map-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .gm-card{background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:all .18s;}
 .gm-card:hover{border-color:var(--teal);box-shadow:0 3px 14px rgba(14,107,107,.1);transform:translateY(-2px);}
 .gm-top{padding:13px 16px 10px;display:flex;align-items:flex-start;gap:10px;}
-.gm-num{font-size:27px;font-weight:700;line-height:1;flex-shrink:0;width:32px;}
-.gm-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
-.gm-title{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:4px;}
-.gm-desc{font-size:15px;color:#4a6070;line-height:1.55;}
+.gm-num{font-size:24px;font-weight:700;line-height:1;flex-shrink:0;width:32px;}
+.gm-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
+.gm-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:4px;}
+.gm-desc{font-size:13px;color:#4a6070;line-height:1.55;}
 .gm-foot{margin-top:auto;padding:8px 16px;border-top:1px solid var(--sand-dark);background:var(--sand);display:flex;align-items:center;justify-content:space-between;}
 .gm-tags{display:flex;gap:5px;}
-.gm-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;}
-.gm-cta{font-size:12px;font-weight:700;display:flex;align-items:center;gap:4px;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:gap .15s;}
+.gm-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;}
+.gm-cta{font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:gap .15s;}
 .gm-cta:hover{gap:7px;}
 .gm-cta svg{width:11px;height:11px;}
 /* ── CALLOUT ── */
 .callout{background:var(--navy);border-radius:7px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;}
 .callout-icon{width:38px;height:38px;background:rgba(34,181,160,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .callout-icon svg{width:17px;height:17px;}
-.callout-title{color:#fff;font-size:17px;font-weight:700;margin-bottom:4px;}
-.callout-text{color:#a8c8d8;font-size:15px;line-height:1.55;margin-bottom:11px;}
-.btn-callout{background:var(--teal-bright);color:var(--navy);border:none;padding:8px 18px;border-radius:4px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:background .15s;}
+.callout-title{color:#fff;font-size:15px;font-weight:700;margin-bottom:4px;}
+.callout-text{color:#a8c8d8;font-size:13px;line-height:1.55;margin-bottom:11px;}
+.btn-callout{background:var(--teal-bright);color:var(--navy);border:none;padding:8px 18px;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;transition:background .15s;}
 .btn-callout:hover{background:#29ccb5;}
 @media (min-width: 1400px) {
 .topbar { padding: 12px 28px; }
@@ -168,75 +168,104 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .btn-callout { font-size: 18px; padding: 12px 28px; }
 }
 
-/* ============ UTILITY BAR / SITE HEADER / MAIN NAV (matches Data & sources) ============ */
-.util-bar{background:var(--navy);color:rgba(255,255,255,.85);font-size:13px;}
-.util-inner{max-width:1040px;margin:0 auto;padding:8px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
-.util-left{display:flex;gap:16px;align-items:center;}
-.util-left .org{font-weight:700;color:var(--white);}
-.util-right{display:flex;gap:18px;align-items:center;}
-.util-right a{text-decoration:none;color:inherit;opacity:.85;}
-.util-right a:hover{opacity:1;text-decoration:underline;}
-.viewing-tag{background:rgba(255,255,255,.1);padding:3px 10px;border-radius:100px;font-size:12px;}
-header.site-header{background:var(--white);border-bottom:1px solid var(--sand-dark);}
-.header-inner{max-width:1040px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-.brand{font-family:'Source Serif 4',serif;font-weight:600;font-size:18.4px;color:var(--navy);}
-.brand small{display:block;font-family:'Source Sans 3',sans-serif;font-weight:500;font-size:11.5px;color:#5a7080;letter-spacing:.04em;text-transform:uppercase;margin-top:2px;}
-.cta-row{display:flex;gap:10px;flex-wrap:wrap;}
-.btn{display:inline-flex;align-items:center;gap:6px;font-size:13.8px;font-weight:600;padding:9px 15px;border-radius:7px;text-decoration:none;border:1px solid transparent;font-family:'Source Sans 3',sans-serif;cursor:pointer;}
-.btn-primary{background:var(--navy);color:var(--white);}
-.btn-primary:hover{background:var(--teal);}
-.btn-ghost{background:var(--white);color:var(--navy);border-color:var(--sand-dark);}
-.btn-ghost:hover{border-color:var(--navy);}
-nav.main-nav{background:var(--sand);border-bottom:1px solid var(--sand-dark);}
-.nav-inner{max-width:1040px;margin:0 auto;padding:0 24px;display:flex;gap:4px;flex-wrap:wrap;}
-.nav-inner a{display:flex;align-items:center;gap:5px;padding:13px 14px;font-size:14.4px;font-weight:600;text-decoration:none;color:#5a7080;border-bottom:3px solid transparent;white-space:nowrap;}
-.nav-inner a:hover{color:var(--navy);}
-.nav-inner a.active{color:var(--navy);border-bottom-color:var(--teal-bright);}
-.nav-inner a .ext{font-size:11.5px;opacity:.7;}
-
-.nav-inner a{position:relative;}
-.nav-inner a .nav-tip{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;background:var(--navy);color:#fff;font-size:11px;font-weight:500;padding:5px 9px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:20;}
-.nav-inner a:hover .nav-tip,.nav-inner a:focus-visible .nav-tip{opacity:1;}
+.nav-item{position:relative;}
+.nav-item .nav-tip{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:5px 9px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:30;}
+.nav-item:hover .nav-tip,.nav-item:focus-visible .nav-tip{opacity:1;}
+.sb-link{position:relative;}
+.sb-link .nav-tip{position:absolute;left:100%;top:50%;transform:translateY(-50%);margin-left:8px;background:var(--navy);color:#fff;font-size:11px;font-weight:600;padding:5px 9px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:30;}
+.sb-link:hover .nav-tip,.sb-link:focus-visible .nav-tip{opacity:1;}
 </style>
 </head>
 <body>
-<div class="util-bar">
-<div class="util-inner">
-<div class="util-left">
-<span class="org">Utah Dept. of Environmental Quality</span>
-<span>Division of Water Quality</span>
+<!-- TOP BAR -->
+<div class="topbar">
+<div class="topbar-left">
+<div>
+<div class="dept">Utah Dept. of Environmental Quality</div>
+<div class="div">Division of Water Quality</div>
 </div>
-<div class="util-right">
-<span>9-Element Watershed Plan</span>
-<span class="viewing-tag">You are viewing &rsaquo; Lower San Juan Watershed</span>
-<a href="#">Help &amp; glossary</a>
+<span class="topbar-tag">9-Element Watershed Plan</span>
 </div>
+<div class="topbar-right">
+<div class="watershed-pill">
+<span class="wlabel">You are viewing</span>
+<span class="wsep">›</span>
+<span class="wname">Lower San Juan Watershed</span>
 </div>
-</div>
-<header class="site-header">
-<div class="header-inner">
-<div class="brand">
-Lower San Juan Watershed Plan
-<small>Nine key element watershed plan</small>
-</div>
-<div class="cta-row">
-<a class="btn btn-ghost" href="#">Share your input</a>
-<a class="btn btn-ghost" href="#">Read the full plan</a>
-<a class="btn btn-primary" href="#">Download data</a>
+<a href="#" class="topbar-help">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+Help &amp; glossary
+</a>
 </div>
 </div>
-</header>
+<!-- MAIN NAV -->
 <nav class="main-nav">
-<div class="nav-inner">
-<a href="index.html" class="active">Home<span class="nav-tip">Overview &amp; about</span></a>
-<a href="lsj_goals.html">Plan goals<span class="nav-tip">Targets &amp; outcomes</span></a>
-<a href="lsj_goal_panels.html">Goal explorer<span class="nav-tip">Maps &amp; priorities</span></a>
-<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=1e61dbab8ebc446da952a8bb4c6e6824" target="_blank" rel="noopener">Spatial explorer <span class="ext">&#8599;</span><span class="nav-tip">Interactive maps</span></a>
-<a href="lsj_data.html">Data &amp; sources<span class="nav-tip">Datasets &amp; reports</span></a>
-<a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" rel="noopener">Project Funding Guide <span class="ext">&#8599;</span><span class="nav-tip">Grants &amp; programs</span></a>
+<a href="index.html" class="nav-item active">
+<span class="nm">Home</span>
+<span class="nav-tip">Overview &amp; about</span>
+</a>
+<a href="lsj_goals.html" class="nav-item">
+<span class="nm">Plan goals</span>
+<span class="nav-tip">Targets &amp; outcomes</span>
+</a>
+<a href="lsj_goal_panels.html" class="nav-item">
+<span class="nm">Goal explorer</span>
+<span class="nav-tip">Maps &amp; priorities</span>
+</a>
+<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=1e61dbab8ebc446da952a8bb4c6e6824" target="_blank" class="nav-item">
+<span class="nm">Spatial explorer ↗</span>
+<span class="nav-tip">Interactive maps</span>
+</a>
+<a href="lsj_data.html" class="nav-item">
+<span class="nm">Data &amp; sources</span>
+<span class="nav-tip">Datasets &amp; reports</span>
+</a>
+<a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" class="nav-item">
+<span class="nm">Project Funding Guide ↗</span>
+<span class="nav-tip">Grants &amp; programs</span>
+</a>
+<div class="nav-spacer"></div>
+<div class="nav-actions">
+<a href="#" class="btn-nav-p">Share your input</a>
+<a href="#" class="btn-nav-o">Read the full plan</a>
+<a href="#" class="btn-nav-o">Download data</a>
 </div>
 </nav>
+<div class="page-body">
 <!-- SIDEBAR -->
+<aside class="sidebar">
+<div class="sb-label">Navigation</div>
+<a href="index.html" class="sb-link active">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+Home
+<span class="nav-tip">Overview &amp; about</span>
+</a>
+<a href="lsj_goals.html" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+Plan goals
+<span class="nav-tip">Targets &amp; outcomes</span>
+</a>
+<a href="lsj_goal_panels.html" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+Goal explorer
+<span class="nav-tip">Maps &amp; priorities</span>
+</a>
+<a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+Spatial explorer
+<span class="nav-tip">Interactive maps</span>
+</a>
+<a href="lsj_data.html" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+Data &amp; sources
+<span class="nav-tip">Datasets &amp; reports</span>
+</a>
+<a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+Project Funding Guide
+<span class="nav-tip">Grants &amp; programs</span>
+</a>
+</aside>
 <!-- MAIN CONTENT -->
 <main class="main">
 <!-- HERO -->
@@ -251,7 +280,7 @@ Lower San Juan Watershed Plan
 </div>
 </div>
 <div class="hero-disclaimer">
-<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5a7080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#88b4cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
 <p>Planning-level tool only. Not for regulatory determinations.</p>
 </div>
 </div>
@@ -463,5 +492,6 @@ Open spatial explorer
 </div>
 </div><!-- /content -->
 </main>
+</div>
 </body>
 </html>
