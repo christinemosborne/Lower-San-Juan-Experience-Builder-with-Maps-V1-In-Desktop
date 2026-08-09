@@ -86,25 +86,26 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .step-title{font-weight:700;color:var(--navy);font-size:13px;margin-bottom:2px;}
 .step-body{color:#4a6070;font-size:12.5px;line-height:1.5;}
 /* ── HUC8 EXPLORER ── */
-.huc8-layout{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;align-items:start;}
+.huc8-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:20px;align-items:start;}
 @media (max-width:820px){.huc8-layout{grid-template-columns:1fr;}}
 .map-panel{background:#fff;border:1.5px solid var(--sand-dark);border-radius:8px;padding:14px;}
-.map-frame{position:relative;width:100%;border-radius:5px;overflow:hidden;border:1px solid var(--sand-dark);}
-.map-frame img{display:block;width:100%;height:auto;}
+.map-frame{position:relative;width:100%;}
+.map-image-wrap{border-radius:5px;overflow:hidden;border:1px solid var(--sand-dark);}
+.map-image-wrap img{display:block;width:100%;height:auto;}
 .hotspot{position:absolute;transform:translate(-50%,-50%);width:15%;padding-top:15%;border-radius:50%;cursor:pointer;}
 .hotspot::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid transparent;transition:border-color .15s ease,background .15s ease;}
 .hotspot:hover::after,.hotspot:focus-visible::after{border-color:var(--teal-bright);background:rgba(34,181,160,.2);}
-.hotspot span.tip{position:absolute;bottom:105%;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s ease;}
+.hotspot span.tip{position:absolute;bottom:105%;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s ease;z-index:40;}
 .hotspot:hover span.tip,.hotspot:focus-visible span.tip{opacity:1;}
 .map-caption{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:10px 4px 2px;font-size:12px;color:var(--muted);}
 .map-caption a{color:var(--teal);font-weight:700;text-decoration:none;}
 .map-caption a:hover{text-decoration:underline;}
-.huc8-list{display:flex;flex-direction:column;gap:9px;}
-.huc8-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;padding:11px 15px;}
-.huc8-row .swatch{width:11px;height:11px;border-radius:3px;flex-shrink:0;}
-.huc8-row .huc8-label{display:flex;align-items:center;gap:9px;font-weight:700;color:var(--navy);font-size:13px;}
-.huc8-row .huc8-sub{font-weight:400;color:var(--muted);font-size:11px;}
-.huc8-row a{font-size:12px;font-weight:700;color:var(--teal);text-decoration:none;white-space:nowrap;}
+.huc8-list{display:flex;flex-direction:column;gap:12px;}
+.huc8-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1.5px solid var(--sand-dark);border-radius:8px;padding:18px 22px;}
+.huc8-row .swatch{width:15px;height:15px;border-radius:4px;flex-shrink:0;}
+.huc8-row .huc8-label{display:flex;align-items:center;gap:11px;font-weight:700;color:var(--navy);font-size:17px;}
+.huc8-row .huc8-sub{font-weight:400;color:var(--muted);font-size:13px;}
+.huc8-row a{font-size:14px;font-weight:700;color:var(--teal);text-decoration:none;white-space:nowrap;}
 .huc8-row a:hover{text-decoration:underline;}
 /* ── DASHBOARD/TOOL CARDS (matches Home cards-grid) ── */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
@@ -323,7 +324,9 @@ Data &amp; sources
     <div class="huc8-layout">
       <div class="map-panel">
         <div class="map-frame">
-          <img src="huc8-map.png" alt="Map of the five HUC8 subwatersheds making up the Lower San Juan Watershed plan area: Lower San Juan, Lower San Juan-Four Corners, Montezuma, McElmo, and Chinle.">
+          <div class="map-image-wrap">
+            <img src="huc8-map.png" alt="Map of the five HUC8 subwatersheds making up the Lower San Juan Watershed plan area: Lower San Juan, Lower San Juan-Four Corners, Montezuma, McElmo, and Chinle.">
+          </div>
           <a class="hotspot" style="left:28%; top:42%;" href="https://docs.google.com/spreadsheets/d/1LcZfXsqdJPGx3x8raAkBVr89tFtzFk-6rrPNEQia2GQ/edit?usp=sharing" target="_blank" rel="noopener">
             <span class="tip">Lower San Juan — open sheet</span>
           </a>
