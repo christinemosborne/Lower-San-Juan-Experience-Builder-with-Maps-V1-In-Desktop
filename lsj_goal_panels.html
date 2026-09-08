@@ -38,6 +38,17 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .btn-nav-p:hover{background:var(--teal-light);}
 .btn-nav-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:6px 14px;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
 .btn-nav-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+
+/* ── PAGE LAYOUT + SIDEBAR (matches index.html) ── */
+.page-body{display:flex;min-height:calc(100vh - 96px);}
+.sidebar{width:200px;flex-shrink:0;background:var(--sand);border-right:1px solid var(--sand-dark);padding:20px 0;}
+.sb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8f9a;padding:0 16px 10px;}
+.sb-link{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:15px;font-weight:500;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
+.sb-link:hover{background:var(--sand-dark);color:var(--navy);}
+.sb-link.active{border-left-color:var(--teal-bright);background:rgba(34,181,160,.08);color:var(--teal);font-weight:700;}
+.sb-link svg{flex-shrink:0;width:14px;height:14px;}
+.main{flex:1;display:flex;flex-direction:column;min-width:0;}
+
 .page-header{background:var(--navy-mid);padding:32px 40px 28px;border-bottom:2px solid rgba(255,255,255,.06);}
 .page-eyebrow{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:10px;}
 .page-header h1{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
@@ -72,6 +83,14 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .btn-primary:hover{background:#253d6b;}
 .btn-secondary{background:#E1F5EE;color:#0F6E56;border:1px solid #5DCAA5;}
 .btn-secondary:hover{background:#c2edd9;}
+@media (max-width:900px){
+.page-body{flex-direction:column;}
+.sidebar{width:100%;border-right:none;border-bottom:1px solid var(--sand-dark);padding:14px 0;display:flex;flex-wrap:wrap;gap:2px;}
+.sb-label{width:100%;padding:0 16px 6px;}
+.sb-link{border-left:none;border-bottom:3px solid transparent;padding:8px 14px;}
+.sb-link.active{border-left-color:transparent;border-bottom-color:var(--teal-bright);}
+.sb-link .nav-tip{display:none;}
+}
 @media (max-width:700px){
 .goals-grid{padding:1rem;gap:1rem;}
 .card-actions{flex-direction:column;}
@@ -89,6 +108,7 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .btn-nav-p{font-size:16px;padding:10px 20px;}
 .btn-nav-o{font-size:16px;padding:9px 18px;}
 .nav-actions{gap:12px;padding:0 24px;}
+.sb-link{font-size:17px;}
 .page-header h1{font-size:40px;}
 .page-header p{font-size:18px;max-width:800px;}
 .goals-grid{grid-template-columns:repeat(2,1fr);max-width:100%;padding:2.5rem;gap:2rem;}
@@ -147,7 +167,7 @@ Help &amp; glossary
 <span class="nm">Plan goals</span>
 <span class="nav-tip">Targets &amp; outcomes</span>
 </a>
-<a href="lsj_goal_panels.html" class="nav-item active">
+<a href="lsj_goal_panels.html" class="nav-item active" aria-current="page">
 <span class="nm">Goal explorer</span>
 <span class="nav-tip">Maps &amp; priorities</span>
 </a>
@@ -170,6 +190,47 @@ Help &amp; glossary
 <a href="#" class="btn-nav-o">Download data</a>
 </div>
 </nav>
+
+<div class="page-body">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+<div class="sb-label">Navigation</div>
+<a href="index.html" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+Home
+<span class="nav-tip">Overview &amp; about</span>
+</a>
+<a href="lsj_goals.html" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+Plan goals
+<span class="nav-tip">Targets &amp; outcomes</span>
+</a>
+<a href="lsj_goal_panels.html" class="sb-link active" aria-current="page">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+Goal explorer
+<span class="nav-tip">Maps &amp; priorities</span>
+</a>
+<a href="https://experience.arcgis.com/experience/c4cf900f5917406ea15af9cb3113e655/page/Spatial-Data-Explorer" target="_blank" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+Spatial explorer
+<span class="nav-tip">Interactive maps</span>
+</a>
+<a href="lsj_data.html" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+Data &amp; sources
+<span class="nav-tip">Datasets &amp; reports</span>
+</a>
+<a href="https://christinemosborne.github.io/San-Juan-Watershed-Tribal-Project-Funding-version-3/" target="_blank" class="sb-link">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+Project Funding Guide
+<span class="nav-tip">Grants &amp; programs</span>
+</a>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
 <div class="page-header">
 <div class="page-eyebrow">Goal Explorer</div>
 <h1>Watershed Goals</h1>
@@ -206,7 +267,7 @@ Help &amp; glossary
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>McElmo Creek</p><span>Salinity runoff hotspot</span></div></div>
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Chinle Creek</p><span>Mancos Shale landscape</span></div></div>
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Lower Montezuma Creek</p><span>Sediment below irrigated lands</span></div></div>
-<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Springs</p><span>NHD & Lay, 2025 locations</span></div></div>
+<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Springs</p><span>NHD &amp; Lay, 2025 locations</span></div></div>
 </div>
 </div>
 <div class="card-actions">
@@ -243,7 +304,7 @@ Help &amp; glossary
 <div class="section-label"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Priority areas</div>
 <div class="photo-grid">
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>San Juan River corridor</p><span>Bluff to Mexican Hat</span></div></div>
-<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Lower Montezuma Creek</p><span>Communities & grazing lands</span></div></div>
+<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Lower Montezuma Creek</p><span>Communities &amp; grazing lands</span></div></div>
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Recapture Creek</p><span>Livestock-dense tributaries</span></div></div>
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Montezuma tributaries</p><span>Livestock-dense areas</span></div></div>
 </div>
@@ -283,8 +344,8 @@ Help &amp; glossary
 <div class="photo-grid">
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Lower Montezuma Creek</p><span>Selenium-impaired reaches</span></div></div>
 <div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Four Corners area</p><span>Abandoned uranium mines</span></div></div>
-<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>White Mesa Mill</p><span>Contaminated soil & groundwater</span></div></div>
-<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Aneth & Montezuma Valley</p><span>Oil field brine spill risks</span></div></div>
+<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>White Mesa Mill</p><span>Contaminated soil &amp; groundwater</span></div></div>
+<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Aneth &amp; Montezuma Valley</p><span>Oil field brine spill risks</span></div></div>
 </div>
 </div>
 <div class="card-actions">
@@ -332,6 +393,9 @@ Help &amp; glossary
 </div>
 </div>
 </div>
+</div>
+
+</main>
 </div>
 </body>
 </html>
