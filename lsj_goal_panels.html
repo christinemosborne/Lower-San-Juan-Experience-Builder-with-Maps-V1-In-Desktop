@@ -87,6 +87,9 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .photo-caption span.tile-tag{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px;}
 .is-condition .photo-caption span.tile-tag{color:#854F0B;}
 .is-response .photo-caption span.tile-tag{color:#0F6E56;}
+.photo-tile.is-pending{border-style:dashed;background:#fbf9f4;}
+.photo-tile.is-pending .photo-caption{background:#f0ebe0;}
+.photo-tile.is-pending .photo-caption p{color:#5F5E5A;}
 
 .card-actions{display:flex;gap:8px;margin-top:auto;padding-top:4px;}
 .btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 14px;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;transition:background .15s,color .15s;border:none;}
@@ -279,12 +282,12 @@ Project Funding Guide
 <div>
 <div class="section-label"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>From condition to response</div>
 <div class="photo-pair">
-<div class="photo-pair-title">Upland erosion in the Abajo Mountains <em>— gullies feeding headwater streams</em></div>
+<div class="photo-pair-title">Sediment from upland gullies <em>— slowing flow before it cuts</em></div>
 <div class="photo-tile is-condition"><img src="images/erosion-abajo-mountains.jpg" alt="Collapsing red-soil streambank shedding sediment directly into a small creek in the Abajo Mountains" loading="lazy"><div class="photo-caption"><span class="tile-tag">Condition</span><p>Bank collapse into the channel</p><span>Abajo Mountains</span></div></div>
 <div class="photo-tile is-response"><img src="images/spring-protection-rock-structure.jpg" alt="Rock and wire structure built across a small gully to slow flow and hold water at a spring" loading="lazy"><div class="photo-caption"><span class="tile-tag">Response</span><p>Rock grade control structure</p><span>Abajo Mountains — slows gully flow</span></div></div>
 </div>
 <div class="photo-pair">
-<div class="photo-pair-title">Sediment delivery and bank work <em>— two sites in the watershed</em></div>
+<div class="photo-pair-title">Sediment from bare surfaces and unstable banks <em>— armoring the delivery point</em></div>
 <div class="photo-tile is-condition"><img src="images/cottonwood-wash-road-erosion.jpg" alt="Unpaved road in the Cottonwood Wash watershed with its shoulder rilled and collapsing, delivering red sediment toward the drainage below" loading="lazy"><div class="photo-caption"><span class="tile-tag">Condition</span><p>Road surface shedding sediment</p><span>Cottonwood Wash</span></div></div>
 <div class="photo-tile is-response"><img src="images/mcelmo-creek-bank-stabilization.jpg" alt="Riprap bank stabilization along a turbid, sediment-laden reach of McElmo Creek, with heavy equipment working the graded bank above" loading="lazy"><div class="photo-caption"><span class="tile-tag">Response</span><p>Bank stabilization underway</p><span>McElmo Creek</span></div></div>
 </div>
@@ -320,12 +323,17 @@ Project Funding Guide
 </div>
 <hr class="divider">
 <div>
-<div class="section-label"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Priority areas</div>
-<div class="photo-grid">
-<div class="photo-tile"><img src="images/wild-horses.jpg" alt="Band of four free-roaming horses standing on sparse desert rangeland below an eroding mesa" loading="lazy"><div class="photo-caption"><p>Montezuma tributaries</p><span>Free-roaming horses on rangeland</span></div></div>
-<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>San Juan River corridor</p><span>Bluff to Mexican Hat</span></div></div>
-<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Lower Montezuma Creek</p><span>Communities &amp; grazing lands</span></div></div>
-<div class="photo-tile"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><p>Recapture Creek</p><span>Livestock-dense tributaries</span></div></div>
+<div class="section-label"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>From condition to response</div>
+<div class="photo-pair">
+<div class="photo-pair-title">Livestock access to streams <em>— moving water away from the channel</em></div>
+<div class="photo-tile is-condition"><img src="images/wild-horses.jpg" alt="Band of four free-roaming horses standing on sparse desert rangeland below an eroding mesa" loading="lazy"><div class="photo-caption"><span class="tile-tag">Condition</span><p>Free-roaming horses on rangeland</p><span>Montezuma tributaries</span></div></div>
+<div class="photo-tile is-response is-pending"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><span class="tile-tag">Response</span><p>Off-stream water trough</p><span>Photo needed</span></div></div>
+</div>
+<div class="photo-pair">
+<div class="photo-pair-title">Waste and wastewater near streams <em>— containing the source</em></div>
+<div class="photo-tile is-condition is-pending"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><span class="tile-tag">Condition</span><p>Streamside corral or failing septic</p><span>Photo needed</span></div></div>
+<div class="photo-tile is-response is-pending"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><span class="tile-tag">Response</span><p>Septic upgrade or hardened crossing</p><span>Photo needed</span></div></div>
+</div>
 </div>
 </div>
 <div class="card-actions">
@@ -359,12 +367,17 @@ Project Funding Guide
 </div>
 <hr class="divider">
 <div>
-<div class="section-label"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Priority areas</div>
-<div class="photo-grid">
-<div class="photo-tile"><img src="images/monticello-mill.jpg" alt="Concrete foundations and scattered rubble remaining at the former Monticello mill site, with piñon-juniper country beyond" loading="lazy"><div class="photo-caption"><p>Monticello mill site</p><span>Legacy mill foundations</span></div></div>
-<div class="photo-tile"><img src="images/avalanche-mine-drainage.jpg" alt="Rust-orange iron staining coating the rocks and streambed in drainage below the Avalanche Mine site" loading="lazy"><div class="photo-caption"><p>Avalanche Mine</p><span>Iron staining in mine drainage</span></div></div>
-<div class="photo-tile"><img src="images/aneth-well-seep.jpg" alt="Rust-orange floc and dark standing water pooled in a rush-lined seep near a well site in the Aneth field" loading="lazy"><div class="photo-caption"><p>Aneth field</p><span>Seep near a well site</span></div></div>
-<div class="photo-tile"><img src="images/oil-and-gas-pumpjack.jpg" alt="Pumpjack and associated surface piping at a well pad on open desert rangeland" loading="lazy"><div class="photo-caption"><p>Aneth &amp; Montezuma Valley</p><span>Oil field brine spill risks</span></div></div>
+<div class="section-label"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>From condition to response</div>
+<div class="photo-pair">
+<div class="photo-pair-title">Drainage from abandoned mines <em>— stabilizing and treating the source</em></div>
+<div class="photo-tile is-condition"><img src="images/avalanche-mine-drainage.jpg" alt="Rust-orange iron staining coating the rocks and streambed in drainage below the Avalanche Mine site" loading="lazy"><div class="photo-caption"><span class="tile-tag">Condition</span><p>Iron staining in mine drainage</p><span>Avalanche Mine</span></div></div>
+<div class="photo-tile is-response is-pending"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><span class="tile-tag">Response</span><p>Reclaimed waste rock or treatment wetland</p><span>Photo needed</span></div></div>
+</div>
+<div class="photo-pair">
+<div class="photo-pair-title">Legacy mill and well sites <em>— containment and cleanup</em></div>
+<div class="photo-tile is-condition"><img src="images/monticello-mill.jpg" alt="Concrete foundations and scattered rubble remaining at the former Monticello mill site, with piñon-juniper country beyond" loading="lazy"><div class="photo-caption"><span class="tile-tag">Condition</span><p>Legacy mill foundations</p><span>Monticello mill site</span></div></div>
+<div class="photo-tile is-response is-pending"><div class="photo-placeholder"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><div class="photo-caption"><span class="tile-tag">Response</span><p>Monticello repository or remediated pad</p><span>Photo needed</span></div></div>
+</div>
 </div>
 </div>
 <div class="card-actions">
@@ -400,12 +413,12 @@ Project Funding Guide
 <div>
 <div class="section-label"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>From condition to response</div>
 <div class="photo-pair">
-<div class="photo-pair-title">Springs and wet meadows <em>— protecting water at the source</em></div>
+<div class="photo-pair-title">Grazing pressure on springs and wet meadows <em>— excluding stock from the source</em></div>
 <div class="photo-tile is-condition"><img src="images/poor-riparian-condition.jpg" alt="Degraded creek reach with a shallow turbid pool, bare cobble bar and sparse understory beneath thin cottonwoods" loading="lazy"><div class="photo-caption"><span class="tile-tag">Condition</span><p>Degraded riparian reach</p><span>Bare banks and sparse understory</span></div></div>
 <div class="photo-tile is-response"><img src="images/spring-protection-fencing.jpg" alt="Newly installed post-and-wire exclosure fencing protecting a wet meadow spring, with a stock pond in the background" loading="lazy"><div class="photo-caption"><span class="tile-tag">Response</span><p>Spring exclosure fencing</p><span>Abajo Mountains headwaters</span></div></div>
 </div>
 <div class="photo-pair">
-<div class="photo-pair-title">Incised channels <em>— slowing and spreading flow</em></div>
+<div class="photo-pair-title">Channel incision and lost floodplain connection <em>— slowing and spreading flow</em></div>
 <div class="photo-tile is-condition"><img src="images/montezuma-creek-channel.jpg" alt="Incised Montezuma Creek channel viewed from a raw cutbank, with dense tamarisk crowding a narrow trickle of flow" loading="lazy"><div class="photo-caption"><span class="tile-tag">Condition</span><p>Incised channel, tamarisk crowding</p><span>Montezuma Creek</span></div></div>
 <div class="photo-tile is-response"><img src="images/beaver-dam-analogue.jpg" alt="Beaver dam analogue built from woven aspen posts and cut branches across a small wet meadow channel" loading="lazy"><div class="photo-caption"><span class="tile-tag">Response</span><p>Beaver dam analog</p><span>Abajo Mountains headwaters</span></div></div>
 </div>
