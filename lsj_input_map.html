@@ -159,7 +159,7 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 /* ── INPUT MAP PAGE ── */
 .input-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:1.5rem;padding:2rem;max-width:1400px;margin:0 auto;width:100%;}
 .map-col{display:flex;flex-direction:column;gap:8px;min-width:0;}
-#map{height:600px;border-radius:10px;border:1px solid #ddd6c8;background:#ece6d9;}
+#map{height:600px;border-radius:10px;border:1px solid #ddd6c8;background:#ece6d9;position:relative;z-index:0;}
 .map-help{background:#fff;border:1px solid #ddd6c8;border-left:4px solid var(--teal);border-radius:8px;padding:14px 18px;margin-bottom:6px;}
 .map-help h2{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0F6E56;margin-bottom:6px;}
 .map-help p{font-size:15px;line-height:1.65;color:#333;}
@@ -176,7 +176,19 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .pin-empty{font-size:14px;color:var(--muted);}
 .pin-ws{display:block;font-size:12px;color:#5F5E5A;font-variant-numeric:normal;}
 .pin-ws.is-outside{color:#854F0B;}
-.huc-tip{font:600 13px 'Source Sans 3',sans-serif;color:var(--navy);}
+.leaflet-control-layers-expanded{font:14px 'Source Sans 3',sans-serif;color:var(--navy);padding:8px 12px;}
+.leaflet-control-layers-separator{margin:6px -12px 6px -12px;}
+.place-search{position:relative;z-index:10;display:flex;gap:8px;}
+.place-search input{flex:1;min-width:0;height:44px;padding:0 14px;border:1px solid #ddd6c8;border-radius:6px;font:15px 'Source Sans 3',sans-serif;color:var(--text);background:#fff;}
+.place-search input:focus{outline:2px solid var(--teal-bright);outline-offset:1px;}
+.place-search .btn{flex:none;padding:0 20px;height:44px;}
+.place-results{position:absolute;top:48px;left:0;right:0;z-index:1000;list-style:none;background:#fff;border:1px solid #ddd6c8;border-radius:6px;box-shadow:0 6px 18px rgba(13,43,69,.15);overflow:hidden;}
+.place-results li+li{border-top:1px solid #ece6d9;}
+.place-results button{display:block;width:100%;text-align:left;background:none;border:none;padding:10px 14px;font:15px 'Source Sans 3',sans-serif;color:var(--navy);cursor:pointer;}
+.place-results button:hover,.place-results button:focus{background:#E1F5EE;}
+.place-note{padding:10px 14px;font-size:14px;color:var(--muted);}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.map-tip{font:600 13px 'Source Sans 3',sans-serif;color:var(--navy);}
 .panel-actions{display:flex;flex-direction:column;gap:8px;}
 .panel-actions .btn{width:100%;flex:none;}
 .config-msg{font-size:13px;color:#A32D2D;}
@@ -294,8 +306,14 @@ Project Funding Guide
 <div class="map-col">
 <section class="map-help" aria-labelledby="map-help-heading">
 <h2 id="map-help-heading">How to use the map</h2>
-<p>Click or tap the map to drop a numbered pin. Add as many as you like, and don’t worry about being exact. Drag a pin to move it, or click it (or the × in the list) to remove it. Use <strong>+</strong> and <strong>−</strong> to zoom and the layer button to switch to aerial imagery. When you’re done, select <strong>Continue to survey</strong>. Your pins carry over automatically, so you can refer to them by number (“Pin 2 is where the bank is eroding”).</p>
+<p>Click or tap the map to drop a numbered pin. Add as many as you like, and they don’t need to be exact. Drag a pin to move it, or click it (or the × in the list) to remove it. Search for a town or landmark to jump there. The box in the top right corner switches to aerial imagery and shows layers like Navajo Nation chapters. When you’re done, select <strong>Continue to survey</strong>. Your pins carry over, so you can refer to them by number (“Pin 2 is where the bank is eroding”).</p>
 </section>
+<form id="place-search" class="place-search" role="search">
+<label for="place-q" class="sr-only">Find a place</label>
+<input id="place-q" type="search" placeholder="Find a place — e.g. Bluff, Aneth, Mexican Hat" autocomplete="off">
+<button type="submit" class="btn btn-primary">Find</button>
+<ul id="place-results" class="place-results" hidden></ul>
+</form>
 <div id="map" role="application" aria-label="Map of the Lower San Juan watershed. Click or tap to add a pin."></div>
 </div>
 
@@ -319,23 +337,34 @@ Project Funding Guide
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 /* =====================================================================
-   SETTINGS — the only two lines that need editing
+   SETTINGS
    ---------------------------------------------------------------------
    FORM_PREFILL_URL: the Google Form "Get pre-filled link" URL, made by
-     typing TEST in the map-locations question. The word TEST is replaced
-     with the pin coordinates when someone clicks "Continue to survey".
-   BOUNDARY_URL: the plan boundary. Either a public ArcGIS layer URL
-     ending in /FeatureServer/0 (or /MapServer/0), or a GeoJSON file in
-     this repo such as "data/lsj_boundary.geojson". Leave "" for none.
+     typing TEST in the Map locations question. TEST is replaced with
+     the pin list when someone clicks "Continue to survey".
+   The three map layers are GeoJSON files stored next to this page.
    ===================================================================== */
 const FORM_PREFILL_URL = "https://docs.google.com/forms/d/e/1FAIpQLScF6KA1V3luqVvSMWf45TkPoGZ88zlu5N0AXe21B4diGzCMTQ/viewform?usp=pp_url&entry.346919862=TEST";
-const BOUNDARY_URL = "lsj_huc8_boundaries.geojson";
+const PLAN_AREA_URL    = "lsj_plan_area.geojson";
+const SUBWATERSHED_URL = "lsj_huc8_boundaries.geojson";
+const CHAPTERS_URL     = "lsj_navajo_chapters.geojson";
+
+/* Plain-language names shown to the public, keyed by HUC8 code.
+   The official HUC8 name and code still go to the response sheet. */
+const PUBLIC_NAMES = {
+  "14080201": "San Juan River – Four Corners area",
+  "14080202": "McElmo Creek",
+  "14080203": "Montezuma Creek",
+  "14080204": "Chinle Wash",
+  "14080205": "San Juan River – Bluff to Lake Powell"
+};
 /* ===================================================================== */
 
-const MAX_PINS = 40;               // keeps the survey link under URL length limits
+const MAX_PINS = 30;               // keeps the survey link under URL length limits
 const STORE_KEY = "lsj-input-pins";
+const OUTSIDE = "Outside plan area";
 
-const map = L.map("map", { zoomControl: true }).setView([37.35, -109.65], 9);
+const map = L.map("map", { zoomControl: true }).setView([37.0, -109.6], 8);
 
 const topo = L.tileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
@@ -344,35 +373,61 @@ const imagery = L.tileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
   { maxZoom: 19, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" });
 topo.addTo(map);
-L.control.layers({ "Topographic": topo, "Imagery": imagery }, null, { position: "topright" }).addTo(map);
+const layersCtl = L.control.layers({ "Topographic": topo, "Imagery": imagery }, null, {
+  position: "topright", collapsed: window.innerWidth < 700
+}).addTo(map);
 
-/* ---------- plan boundary ---------- */
-if (BOUNDARY_URL) {
-  const isArcGIS = /\/(FeatureServer|MapServer)\/\d+\/?$/i.test(BOUNDARY_URL);
-  const src = isArcGIS
-    ? BOUNDARY_URL.replace(/\/$/, "") + "/query?where=1%3D1&outFields=*&outSR=4326&f=geojson"
-    : BOUNDARY_URL;
-  fetch(src)
-    .then(r => r.json())
-    .then(gj => {
-      boundary = gj.features || [];
-      const layer = L.geoJSON(gj, {
-        style: { color: "#0d2b45", weight: 2, fillColor: "#22b5a0", fillOpacity: 0.07 },
-        onEachFeature: (f, lyr) => {
-          const nm = f.properties && (f.properties.name || f.properties.NAME);
-          if (nm) lyr.bindTooltip(nm + " watershed", { sticky: true, direction: "top", className: "huc-tip" });
-          lyr.on("mouseover", () => lyr.setStyle({ fillOpacity: 0.16 }));
-          lyr.on("mouseout",  () => lyr.setStyle({ fillOpacity: 0.07 }));
-        }
-      }).addTo(map);
-      if (!pins.length) map.fitBounds(layer.getBounds(), { padding: [20, 20] });
-      render();
-    })
-    .catch(err => console.warn("Boundary did not load:", err));
+/* ---------- reference layers ---------- */
+let subwatersheds = [];   // features used for pin lookup
+let chapters = [];
+let planBounds = null;
+
+function getJSON(url) {
+  return fetch(url).then(r => r.ok ? r.json() : null).catch(() => null);
 }
 
-/* ---------- watershed lookup ---------- */
-let boundary = [];
+function hoverable(lyr, base) {
+  lyr.on("mouseover", () => lyr.setStyle({ fillOpacity: base + 0.12 }));
+  lyr.on("mouseout",  () => lyr.setStyle({ fillOpacity: base }));
+}
+
+Promise.all([getJSON(PLAN_AREA_URL), getJSON(SUBWATERSHED_URL), getJSON(CHAPTERS_URL)])
+  .then(([plan, subs, chaps]) => {
+    if (plan) {
+      const planLayer = L.geoJSON(plan, {
+        style: { color: "#0d2b45", weight: 3, fillColor: "#22b5a0", fillOpacity: 0.06 },
+        interactive: false
+      }).addTo(map);
+      layersCtl.addOverlay(planLayer, "Plan area");
+      planBounds = planLayer.getBounds();
+      if (!pins.length) map.fitBounds(planBounds, { padding: [20, 20] });
+    }
+    if (subs) {
+      subwatersheds = subs.features || [];
+      const subLayer = L.geoJSON(subs, {
+        style: { color: "#0e6b6b", weight: 1.5, dashArray: "5 4", fillColor: "#0e6b6b", fillOpacity: 0 },
+        onEachFeature: (f, lyr) => {
+          lyr.bindTooltip(publicName(f), { sticky: true, direction: "top", className: "map-tip" });
+          hoverable(lyr, 0);
+        }
+      });
+      layersCtl.addOverlay(subLayer, "Sub-watersheds");
+    }
+    if (chaps) {
+      chapters = chaps.features || [];
+      const chapLayer = L.geoJSON(chaps, {
+        style: { color: "#854F0B", weight: 1, fillColor: "#BA7517", fillOpacity: 0 },
+        onEachFeature: (f, lyr) => {
+          lyr.bindTooltip(f.properties.chapter + " Chapter", { sticky: true, direction: "top", className: "map-tip" });
+          hoverable(lyr, 0);
+        }
+      });
+      layersCtl.addOverlay(chapLayer, "Navajo Nation chapters");
+    }
+    render();
+  });
+
+/* ---------- where is a pin? ---------- */
 function inRing(x, y, ring) {
   let inside = false;
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
@@ -381,19 +436,36 @@ function inRing(x, y, ring) {
   }
   return inside;
 }
-function inPolygon(x, y, rings) {
-  if (!inRing(x, y, rings[0])) return false;
-  for (let k = 1; k < rings.length; k++) if (inRing(x, y, rings[k])) return false;
-  return true;
+function inGeom(x, y, g) {
+  if (!g) return false;
+  const polys = g.type === "Polygon" ? [g.coordinates] : g.type === "MultiPolygon" ? g.coordinates : [];
+  return polys.some(rings => {
+    if (!inRing(x, y, rings[0])) return false;
+    for (let k = 1; k < rings.length; k++) if (inRing(x, y, rings[k])) return false;
+    return true;
+  });
 }
-function watershedAt(ll) {
-  if (!boundary.length) return "";
-  for (const f of boundary) {
-    const g = f.geometry; if (!g) continue;
-    const polys = g.type === "Polygon" ? [g.coordinates] : g.type === "MultiPolygon" ? g.coordinates : [];
-    if (polys.some(r => inPolygon(ll.lng, ll.lat, r))) return (f.properties && (f.properties.name || f.properties.NAME)) || "";
+function featureAt(ll, feats) {
+  return feats.find(f => inGeom(ll.lng, ll.lat, f.geometry)) || null;
+}
+function publicName(f) {
+  const p = f.properties || {};
+  return PUBLIC_NAMES[p.huc8] || p.name || "";
+}
+/* returns { label: what the public sees, record: what goes to the sheet } */
+function describe(ll) {
+  if (!subwatersheds.length) return { label: "", record: "" };
+  const sub = featureAt(ll, subwatersheds);
+  const chap = featureAt(ll, chapters);
+  const chapName = chap ? chap.properties.chapter + " Chapter" : "";
+  if (!sub) {
+    const label = chapName ? OUTSIDE + " · " + chapName : OUTSIDE;
+    return { label: label, record: "(" + (chapName ? "outside plan area; " + chapName : "outside plan area") + ")" };
   }
-  return "outside plan area";
+  const pub = publicName(sub);
+  const label = chapName ? pub + " · " + chapName : pub;
+  const record = "(" + (chapName ? pub + "; " + chapName : pub) + ") [" + sub.properties.name + " " + sub.properties.huc8 + "]";
+  return { label: label, record: record };
 }
 
 /* ---------- pins ---------- */
@@ -447,11 +519,11 @@ function render() {
     const coord = document.createElement("span");
     coord.className = "pin-coord";
     coord.textContent = fmt(m.getLatLng());
-    const ws = watershedAt(m.getLatLng());
-    if (ws) {
+    const d = describe(m.getLatLng());
+    if (d.label) {
       const tag = document.createElement("span");
-      tag.className = "pin-ws" + (ws === "outside plan area" ? " is-outside" : "");
-      tag.textContent = ws;
+      tag.className = "pin-ws" + (d.label.indexOf(OUTSIDE) === 0 ? " is-outside" : "");
+      tag.textContent = d.label;
       coord.appendChild(tag);
     }
     coord.addEventListener("click", () => map.panTo(m.getLatLng()));
@@ -482,6 +554,64 @@ function restore() {
 
 map.on("click", e => addPin(e.latlng));
 
+/* ---------- place search (OpenStreetMap Nominatim) ---------- */
+const searchForm = document.getElementById("place-search");
+const searchInput = document.getElementById("place-q");
+const searchResults = document.getElementById("place-results");
+
+function nominatim(q, bounded) {
+  const b = planBounds ? planBounds.pad(0.25) : L.latLngBounds([35.6, -111.0], [38.4, -108.3]);
+  const params = new URLSearchParams({
+    format: "jsonv2", limit: "6", countrycodes: "us", q: q,
+    viewbox: [b.getWest(), b.getNorth(), b.getEast(), b.getSouth()].join(","),
+    bounded: bounded ? "1" : "0"
+  });
+  return fetch("https://nominatim.openstreetmap.org/search?" + params.toString(), {
+    headers: { "Accept-Language": "en" }
+  }).then(r => r.ok ? r.json() : []);
+}
+
+function goTo(r) {
+  searchResults.hidden = true;
+  searchResults.innerHTML = "";
+  if (r.boundingbox) {
+    const bb = r.boundingbox.map(Number);   // [south, north, west, east]
+    map.fitBounds([[bb[0], bb[2]], [bb[1], bb[3]]], { maxZoom: 14 });
+  } else {
+    map.setView([+r.lat, +r.lon], 13);
+  }
+}
+
+searchForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const q = searchInput.value.trim();
+  if (!q) return;
+  searchResults.hidden = false;
+  searchResults.innerHTML = '<li class="place-note">Searching…</li>';
+  nominatim(q, true)
+    .then(res => res.length ? res : nominatim(q, false))
+    .then(res => {
+      searchResults.innerHTML = "";
+      if (!res.length) {
+        searchResults.innerHTML = '<li class="place-note">No places found. Try a nearby town or landmark.</li>';
+        return;
+      }
+      if (res.length === 1) { goTo(res[0]); return; }
+      res.forEach(r => {
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = r.display_name.split(", ").slice(0, 3).join(", ");
+        btn.addEventListener("click", () => goTo(r));
+        li.appendChild(btn);
+        searchResults.appendChild(li);
+      });
+    })
+    .catch(() => {
+      searchResults.innerHTML = '<li class="place-note">Search isn’t available right now. You can still zoom and pan the map.</li>';
+    });
+});
+
 /* ---------- buttons ---------- */
 function showMsg(t) {
   const el = document.getElementById("config-msg");
@@ -496,8 +626,8 @@ function surveyUrl(value) {
 document.getElementById("btn-continue").addEventListener("click", () => {
   if (!pins.length) { showMsg("Add at least one pin, or use “Continue without adding pins” below."); return; }
   const value = pins.map((m, i) => {
-    const ws = watershedAt(m.getLatLng());
-    return (i + 1) + ": " + fmt(m.getLatLng()) + (ws ? " (" + ws + ")" : "");
+    const d = describe(m.getLatLng());
+    return (i + 1) + ": " + fmt(m.getLatLng()) + (d.record ? " " + d.record : "");
   }).join("; ");
   const url = surveyUrl(value);
   if (!url) { showMsg("The survey link hasn’t been set up yet."); return; }
