@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lower San Juan Watershed Plan — Plan Goals</title>
+<title>Lower San Juan Watershed Plan — Plan goals</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -25,8 +25,6 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .wlabel{color:#88b4cc;font-size:10px;text-transform:uppercase;letter-spacing:.08em;}
 .wsep{color:#4a7090;}
 .wname{color:#fff;font-size:13px;font-weight:600;}
-.topbar-help{color:#a8cfe0;font-size:12px;text-decoration:none;display:flex;align-items:center;gap:5px;}
-.topbar-help:hover{color:#fff;}
 .main-nav{background:var(--navy-light);display:flex;align-items:stretch;border-bottom:2px solid rgba(255,255,255,.08);}
 .nav-item{display:flex;flex-direction:column;justify-content:center;padding:11px 22px;text-decoration:none;border-right:1px solid rgba(255,255,255,.1);transition:background .15s;}
 .nav-item:hover{background:rgba(255,255,255,.08);}
@@ -40,12 +38,6 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .btn-nav-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);padding:7px 16px;border-radius:4px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
 .btn-nav-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
 .page-body{display:flex;min-height:calc(100vh - 96px);}
-.sidebar{width:200px;flex-shrink:0;background:var(--sand);border-right:1px solid var(--sand-dark);padding:20px 0;}
-.sb-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a8f9a;padding:0 16px 10px;}
-.sb-link{display:flex;align-items:center;gap:9px;padding:10px 16px;font-size:15px;font-weight:500;color:var(--text);text-decoration:none;border-left:3px solid transparent;transition:all .15s;}
-.sb-link:hover{background:var(--sand-dark);color:var(--navy);}
-.sb-link.active{border-left-color:var(--teal-bright);background:rgba(34,181,160,.08);color:var(--teal);font-weight:700;}
-.sb-link svg{flex-shrink:0;width:14px;height:14px;}
 .main{flex:1;display:flex;flex-direction:column;min-width:0;}
 .page-header{background:var(--navy-mid);padding:32px 40px 28px;border-bottom:2px solid rgba(255,255,255,.06);}
 .page-eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:10px;}
@@ -53,47 +45,33 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .page-header p{font-size:16px;color:#b8d8e8;line-height:1.65;max-width:620px;}
 .disclaimer-inline{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12px;color:#6a96b0;font-style:italic;}
 .content{flex:1;padding:32px 40px;}
-.section-intro{margin-bottom:28px;}
-.section-intro h2{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:8px;}
-.section-intro p{font-size:16px;color:#4a6070;line-height:1.7;max-width:660px;}
-.goals-list{display:flex;flex-direction:column;gap:14px;margin-bottom:40px;}
+.goals-list{display:flex;flex-direction:column;gap:14px;margin-bottom:14px;}
 .goal-card{background:#fff;border:1.5px solid var(--sand-dark);border-radius:8px;display:flex;align-items:stretch;overflow:hidden;transition:all .2s;min-height:120px;}
 .goal-card:hover{border-color:var(--teal);box-shadow:0 3px 16px rgba(14,107,107,.1);}
+.goal-card.goal-foundation{background:var(--sand);border:1.5px dashed #9fb3bf;margin-bottom:40px;}
+.goal-foundation .goal-num{background:var(--teal);}
+.goal-foundation .goal-num .num-label{color:#bfe9e1;}
+.goal-foundation .goal-meta{justify-content:flex-start;}
+.badge-foundation{background:#dde8f0;color:var(--navy);}
+.badge-foundation::before{background:var(--navy);}
 .goal-num{background:var(--navy);width:96px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 10px;text-align:center;}
 .goal-num .num-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6a96b0;margin-bottom:4px;}
 .goal-num .num{font-size:42px;font-weight:700;color:#fff;line-height:1;}
-.goal-num .num-cat{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-bright);margin-top:6px;line-height:1.3;}
 .goal-body{flex:1;padding:18px 22px;min-width:0;}
 .goal-body h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
 .goal-body p{font-size:15px;color:#4a6070;line-height:1.65;margin-bottom:10px;}
 .goal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.goal-body h3.goal-topic{font-family:'Source Serif 4',serif;font-size:24px;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:4px;}
+.goal-body p.goal-statement{font-size:16px;font-weight:600;color:var(--navy-light);line-height:1.45;margin-bottom:12px;}
+.goal-body p.goal-line{display:grid;grid-template-columns:86px 1fr;align-items:baseline;margin-bottom:6px;}
+.goal-lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);}
+.goal-tags{margin-top:10px;}
 .goal-tag{font-size:13px;font-weight:600;background:var(--sand);color:#4a6070;border:1px solid var(--sand-dark);padding:3px 10px;border-radius:3px;}
-.goal-meta{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;padding:16px 20px 16px 10px;gap:10px;}
+.goal-meta{display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;padding:16px 20px 16px 10px;gap:10px;}
 .status-badge{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;padding:5px 12px;border-radius:20px;white-space:nowrap;}
 .status-badge::before{content:'';width:7px;height:7px;border-radius:50%;}
-.badge-active{background:rgba(34,181,160,.12);color:var(--teal);}
-.badge-active::before{background:var(--teal-bright);}
-.badge-progress{background:rgba(14,107,107,.1);color:#0a5050;}
-.badge-progress::before{background:#0a8080;}
-.badge-planned{background:rgba(90,112,128,.12);color:var(--muted);}
-.badge-planned::before{background:#8aacba;}
 .btn-details{background:transparent;color:var(--teal);border:1.5px solid var(--teal);padding:8px 18px;border-radius:4px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:all .15s;white-space:nowrap;}
 .btn-details:hover{background:var(--teal);color:#fff;}
-.stressors-section{margin-bottom:32px;}
-.stressors-section h3{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px;}
-.stressors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-@media (max-width:1000px){.stressors-grid{grid-template-columns:repeat(2,1fr);}}
-.stressor-card{background:#fff;border:1.5px solid var(--sand-dark);border-radius:7px;padding:20px;transition:all .18s;}
-.stressor-card:hover{border-color:var(--navy-light);}
-.stressor-icon{width:40px;height:40px;border-radius:6px;background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:13px;}
-.stressor-icon svg{width:18px;height:18px;}
-.stressor-card h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.stressor-card p{font-size:14px;color:#5a7080;line-height:1.6;}
-.monitoring-note{background:var(--sand);border:1.5px solid var(--sand-dark);border-left:5px solid #6a96b0;border-radius:6px;padding:22px 26px;display:flex;align-items:flex-start;gap:16px;margin-bottom:32px;}
-.monitoring-note-icon{width:38px;height:38px;background:#dde8f0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.monitoring-note-icon svg{width:17px;height:17px;}
-.monitoring-note-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.monitoring-note p{font-size:15px;color:#4a6070;line-height:1.65;}
 .callout{background:var(--navy);border-radius:7px;padding:22px 26px;display:flex;align-items:flex-start;gap:18px;}
 .callout-icon{width:40px;height:40px;background:rgba(34,181,160,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .callout-icon svg{width:18px;height:18px;}
@@ -114,37 +92,26 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .topbar-tag { font-size: 13px; padding: 5px 14px; }
 .wname { font-size: 16px; }
 .wlabel { font-size: 13px; }
-.topbar-help { font-size: 15px; }
 .nav-item .nm { font-size: 20px; }
 .nav-item .ns { font-size: 15px; }
 .nav-actions { gap: 12px; padding: 0 24px; }
 .btn-nav-p { font-size: 17px; padding: 11px 22px; }
 .btn-nav-o { font-size: 17px; padding: 10px 20px; }
-.sb-link { font-size: 17px; }
 .page-eyebrow { font-size: 14px; }
 .page-header h1 { font-size: 38px; }
 .page-header p { font-size: 19px; max-width: 780px; }
-.section-intro h2 { font-size: 26px; }
-.section-intro p { font-size: 18px; max-width: 800px; }
 .goal-num { width: 120px; padding: 24px 12px; }
 .goal-num .num-label { font-size: 14px; }
 .goal-num .num { font-size: 50px; }
-.goal-num .num-cat { font-size: 14px; }
 .goal-body h3 { font-size: 22px; }
 .goal-body p { font-size: 18px; }
+.goal-body h3.goal-topic { font-size: 30px; }
+.goal-body p.goal-statement { font-size: 19px; }
+.goal-lbl { font-size: 13px; }
+.goal-body p.goal-line { grid-template-columns: 104px 1fr; }
 .goal-tag { font-size: 15px; padding: 4px 12px; }
 .btn-details { font-size: 16px; padding: 10px 22px; }
 .status-badge { font-size: 15px; }
-.stressors-section h3 { font-size: 19px; }
-.stressor-card { padding: 24px; }
-.stressor-card h4 { font-size: 20px; }
-.stressor-card p { font-size: 17px; }
-.stressor-icon { width: 48px; height: 48px; margin-bottom: 16px; }
-.stressor-icon svg { width: 22px; height: 22px; }
-.monitoring-note { padding: 28px 32px; gap: 18px; border-left-width: 6px; }
-.monitoring-note-icon { width: 48px; height: 48px; }
-.monitoring-note-title { font-size: 22px; margin-bottom: 8px; }
-.monitoring-note p { font-size: 18px; line-height: 1.7; }
 .callout-title { font-size: 22px; }
 .callout-text { font-size: 17px; }
 .btn-callout { font-size: 18px; padding: 12px 28px; }
@@ -153,9 +120,6 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .nav-item{position:relative;}
 .nav-item .nav-tip{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:6px 10px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:30;font-size:13px;}
 .nav-item:hover .nav-tip,.nav-item:focus-visible .nav-tip{opacity:1;}
-.sb-link{position:relative;}
-.sb-link .nav-tip{position:absolute;left:100%;top:50%;transform:translateY(-50%);margin-left:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:6px 10px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:30;font-size:13px;}
-.sb-link:hover .nav-tip,.sb-link:focus-visible .nav-tip{opacity:1;}
 </style>
 </head>
 <body>
@@ -173,10 +137,6 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 <span class="wsep">›</span>
 <span class="wname">Lower San Juan Watershed</span>
 </div>
-<a href="#" class="topbar-help">
-<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-Help &amp; glossary
-</a>
 </div>
 </div>
 <nav class="main-nav">
@@ -208,43 +168,10 @@ Help &amp; glossary
 <div class="nav-actions">
 <a href="lsj_input_map.html" class="btn-nav-p">Share your input</a>
 <a href="#" class="btn-nav-o">Read the full plan</a>
-<a href="#" class="btn-nav-o">Download data</a>
+<a href="lsj_data.html" class="btn-nav-o">Download data</a>
 </div>
 </nav>
 <div class="page-body">
-<aside class="sidebar">
-<div class="sb-label">Sections</div>
-<a href="index.html" class="sb-link">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-Home
-<span class="nav-tip">Overview &amp; about</span>
-</a>
-<a href="lsj_goals.html" class="sb-link active" aria-current="page">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-Plan goals
-<span class="nav-tip">Targets &amp; outcomes</span>
-</a>
-<a href="lsj_goal_panels.html" class="sb-link">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-Goal explorer
-<span class="nav-tip">Maps &amp; priorities</span>
-</a>
-<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=1e61dbab8ebc446da952a8bb4c6e6824" target="_blank" class="sb-link">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-Spatial explorer
-<span class="nav-tip">Interactive maps</span>
-</a>
-<a href="lsj_data.html" class="sb-link">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-Data &amp; sources
-<span class="nav-tip">Datasets &amp; reports</span>
-</a>
-<a href="https://christinemosborne.github.io/San-Juan-Watershed-Project-Builder-version-3/" target="_blank" class="sb-link">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-Project Funding Guide
-<span class="nav-tip">Grants &amp; programs</span>
-</a>
-</aside>
 <main class="main">
 <div class="page-header">
 <div class="page-eyebrow">Plan goals</div>
@@ -256,42 +183,39 @@ Planning-level tool only. Not for regulatory determinations.
 </div>
 </div>
 <div class="content">
-<div class="section-intro">
-<h2>Four core goals for the watershed</h2>
-<p>Goals were developed through water quality data analysis, regulatory context, and stakeholder priorities. Select any goal to learn more about targets, current conditions, and recommended management actions.</p>
-</div>
 <div class="goals-list">
 <div class="goal-card">
 <div class="goal-num">
 <span class="num-label">Goal</span>
 <span class="num">01</span>
-<span class="num-cat">Sediment &amp; salinity</span>
 </div>
 <div class="goal-body">
-<h3>Reduce erosion and runoff-driven sediment and salinity loading from priority source areas</h3>
-<p>Target ~30–35% TDS load reductions in impaired assessment units, focusing on Mancos Shale landscapes, ephemeral tributaries, and irrigated lands.</p>
+<h3 class="goal-topic">Sediment &amp; salinity</h3>
+<p class="goal-statement">Reduce erosion and runoff-driven sediment and salinity loading from priority source areas</p>
+<p class="goal-line"><span class="goal-lbl">Problem</span>Event-driven runoff from Mancos Shale landscapes and ephemeral tributaries delivers disproportionate sediment loads downstream.</p>
+<p class="goal-line"><span class="goal-lbl">Target</span>~30–35% TDS load reductions in impaired assessment units, focusing on Mancos Shale landscapes, ephemeral tributaries, and irrigated lands.</p>
 <div class="goal-tags">
 <span class="goal-tag">TSS</span>
-<span class="goal-tag">Total Dissolved Solids</span>
+<span class="goal-tag">Total dissolved solids</span>
 <span class="goal-tag">McElmo Creek</span>
 <span class="goal-tag">Chinle Creek</span>
 <span class="goal-tag">Montezuma Creek</span>
 </div>
 </div>
 <div class="goal-meta">
-<span class="status-badge badge-progress">In progress</span>
-<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=512a1b5a86524f42a2539a80ece3237b" target="_blank" rel="noopener" class="btn-details" title="Goal 1 map — sediment & salinity">View Map</a>
+<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=512a1b5a86524f42a2539a80ece3237b" target="_blank" rel="noopener" class="btn-details" title="Goal 1 map — sediment & salinity">View map</a>
 </div>
 </div>
 <div class="goal-card">
 <div class="goal-num">
 <span class="num-label">Goal</span>
 <span class="num">02</span>
-<span class="num-cat">Bacteria</span>
 </div>
 <div class="goal-body">
-<h3>Improve bacteria conditions to support recreational, cultural, and aquatic life uses</h3>
-<p>Target ~20% reduction in peak E. coli concentrations at impaired reaches through livestock access management, riparian buffers, and community wastewater improvements.</p>
+<h3 class="goal-topic">Bacteria</h3>
+<p class="goal-statement">Improve bacteria conditions to support recreational, cultural, and aquatic life uses</p>
+<p class="goal-line"><span class="goal-lbl">Problem</span>Livestock access, unsewered communities, and high-runoff events contribute to E. coli exceedances across recreational and aquatic life reaches.</p>
+<p class="goal-line"><span class="goal-lbl">Target</span>~20% reduction in peak E. coli concentrations at impaired reaches through livestock access management, riparian buffers, and community wastewater improvements.</p>
 <div class="goal-tags">
 <span class="goal-tag">E. coli</span>
 <span class="goal-tag">San Juan River corridor</span>
@@ -300,41 +224,41 @@ Planning-level tool only. Not for regulatory determinations.
 </div>
 </div>
 <div class="goal-meta">
-<span class="status-badge badge-progress">In progress</span>
-<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=6be3351d0f3b4d7b8f6474158f82eb83" target="_blank" rel="noopener" class="btn-details" title="Goal 2 map — bacteria">View Map</a>
+<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=6be3351d0f3b4d7b8f6474158f82eb83" target="_blank" rel="noopener" class="btn-details" title="Goal 2 map — bacteria">View map</a>
 </div>
 </div>
 <div class="goal-card">
 <div class="goal-num">
 <span class="num-label">Goal</span>
 <span class="num">03</span>
-<span class="num-cat">Metals &amp; legacy sites</span>
 </div>
 <div class="goal-body">
-<h3>Address locally elevated metals, selenium, and radionuclide concerns from legacy and natural sources</h3>
-<p>Target ~10% reduction in dissolved selenium loads in impaired reaches through abandoned mine stabilization, passive treatment systems, and coordination with ongoing remediation programs.</p>
+<h3 class="goal-topic">Metals &amp; legacy sites</h3>
+<p class="goal-statement">Address locally elevated metals, selenium, and radionuclide concerns from legacy and natural sources</p>
+<p class="goal-line"><span class="goal-lbl">Problem</span>Legacy uranium mines, oil field brine, selenium-rich shale soils, and the White Mesa Mill area contribute localized contamination risks.</p>
+<p class="goal-line"><span class="goal-lbl">Target</span>~10% reduction in dissolved selenium loads in impaired reaches through abandoned mine stabilization, passive treatment systems, and coordination with ongoing remediation programs.</p>
 <div class="goal-tags">
 <span class="goal-tag">Selenium</span>
-<span class="goal-tag">Uranium / Radionuclides</span>
+<span class="goal-tag">Uranium / radionuclides</span>
 <span class="goal-tag">Lower Montezuma Creek</span>
 <span class="goal-tag">White Mesa area</span>
 <span class="goal-tag">Aneth oil fields</span>
 </div>
 </div>
 <div class="goal-meta">
-<span class="status-badge badge-planned">Planned</span>
-<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=8bdfbec112d540a58ed637b6f5153bcf" target="_blank" rel="noopener" class="btn-details" title="Goal 3 map — metals & legacy sites">View Map</a>
+<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=8bdfbec112d540a58ed637b6f5153bcf" target="_blank" rel="noopener" class="btn-details" title="Goal 3 map — metals & legacy sites">View map</a>
 </div>
 </div>
 <div class="goal-card">
 <div class="goal-num">
 <span class="num-label">Goal</span>
 <span class="num">04</span>
-<span class="num-cat">Hydrology &amp; riparian</span>
 </div>
 <div class="goal-body">
-<h3>Improve hydrologic and riparian function to support water quality, habitat, and watershed resilience</h3>
-<p>Restore baseflows, native riparian vegetation, and channel stability using low-tech approaches (beaver dam analogs, tamarisk removal) across Bears Ears canyons, Abajo headwaters, and the San Juan riparian corridor.</p>
+<h3 class="goal-topic">Hydrology &amp; riparian</h3>
+<p class="goal-statement">Improve hydrologic and riparian function to support water quality, habitat, and watershed resilience</p>
+<p class="goal-line"><span class="goal-lbl">Problem</span>Channel incision, tamarisk invasion, degraded riparian corridors, and reduced baseflows impair water quality and aquatic habitat across jurisdictions.</p>
+<p class="goal-line"><span class="goal-lbl">Approach</span>Restore baseflows, native riparian vegetation, and channel stability using low-tech approaches (beaver dam analogs, tamarisk removal) across Bears Ears canyons, Abajo headwaters, and the San Juan riparian corridor.</p>
 <div class="goal-tags">
 <span class="goal-tag">Sediment (indirect)</span>
 <span class="goal-tag">Temperature / DO</span>
@@ -344,51 +268,21 @@ Planning-level tool only. Not for regulatory determinations.
 </div>
 </div>
 <div class="goal-meta">
-<span class="status-badge badge-active">Active</span>
-<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=d3ba466923b044b690b82ea50c574db8" target="_blank" rel="noopener" class="btn-details" title="Goal 4 map — hydrology & riparian">View Map</a>
+<a href="https://utahdeq.maps.arcgis.com/apps/mapviewer/index.html?webmap=d3ba466923b044b690b82ea50c574db8" target="_blank" rel="noopener" class="btn-details" title="Goal 4 map — hydrology & riparian">View map</a>
 </div>
 </div>
 </div>
-<div class="stressors-section">
-<h3>Key stressors addressed by this plan</h3>
-<div class="stressors-grid">
-<div class="stressor-card">
-<div class="stressor-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="#22b5a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12"/><path d="M12 6v6l4 2"/></svg>
+<div class="goal-card goal-foundation">
+<div class="goal-num">
+<span class="num-label">Goal</span>
+<span class="num">05</span>
 </div>
-<h4>Sediment &amp; turbidity</h4>
-<p>Event-driven runoff from Mancos Shale landscapes and ephemeral tributaries delivers disproportionate sediment loads downstream.</p>
+<div class="goal-body">
+<h3 class="goal-topic">Monitoring &amp; adaptive management</h3>
+<p>Building coordinated long-term monitoring, data integration, and adaptive management capacity. This includes targeted surface water and groundwater monitoring, tribal and state data-sharing, community-based monitoring programs, and partnerships with academic institutions.</p>
 </div>
-<div class="stressor-card">
-<div class="stressor-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="#e06030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-</div>
-<h4>Bacteria (E. coli)</h4>
-<p>Livestock access, unsewered communities, and high-runoff events contribute to E. coli exceedances across recreational and aquatic life reaches.</p>
-</div>
-<div class="stressor-card">
-<div class="stressor-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="#b060c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-</div>
-<h4>Metals &amp; radionuclides</h4>
-<p>Legacy uranium mines, oil field brine, selenium-rich shale soils, and the White Mesa Mill area contribute localized contamination risks.</p>
-</div>
-<div class="stressor-card">
-<div class="stressor-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="#5ab4e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-</div>
-<h4>Altered hydrology</h4>
-<p>Channel incision, tamarisk invasion, degraded riparian corridors, and reduced baseflows impair water quality and aquatic habitat across jurisdictions.</p>
-</div>
-</div>
-</div>
-<div class="monitoring-note">
-<div class="monitoring-note-icon">
-<svg viewBox="0 0 24 24" fill="none" stroke="#6a96b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-</div>
-<div>
-<div class="monitoring-note-title">Goal 5: Strengthen monitoring &amp; adaptive management</div>
-<p>A fifth cross-cutting goal — building coordinated long-term monitoring, data integration, and adaptive management capacity — supports all four watershed goals above. This includes targeted surface water and groundwater monitoring, tribal and state data-sharing, community-based monitoring programs, and partnerships with academic institutions.</p>
+<div class="goal-meta">
+<span class="status-badge badge-foundation">Supports goals 1&ndash;4</span>
 </div>
 </div>
 <div class="callout">
@@ -398,7 +292,7 @@ Planning-level tool only. Not for regulatory determinations.
 <div>
 <div class="callout-title">Know something about these goals?</div>
 <p class="callout-text">Local observations, land use history, and community knowledge help refine targets and management measures. We want to hear from you.</p>
-<a href="lsj_input_map.html" class="btn-callout">Share observations</a>
+<a href="lsj_input_map.html" class="btn-callout">Share your input</a>
 </div>
 </div>
 </div><!-- /content -->
