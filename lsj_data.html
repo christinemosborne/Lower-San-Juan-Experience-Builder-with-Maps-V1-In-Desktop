@@ -45,13 +45,13 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 /* ── MAIN ── */
 .main{flex:1;display:flex;flex-direction:column;min-width:0;}
 /* ── PAGE HEADER ── */
-.page-header{background:var(--navy-mid);padding:32px 40px 28px;border-bottom:2px solid rgba(255,255,255,.06);}
+.page-header{background:var(--navy-mid);padding:32px max(40px, calc((100% - 1200px) / 2)) 28px;border-bottom:2px solid rgba(255,255,255,.06);}
 .page-eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:10px;}
 .page-header h1{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
 .page-header p{font-size:16px;color:#b8d8e8;line-height:1.65;max-width:640px;}
 .disclaimer-inline{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12px;color:#6a96b0;font-style:italic;}
 /* ── CONTENT ── */
-.content{flex:1;padding:32px 40px;}
+.content{flex:1;padding:32px max(40px, calc((100% - 1200px) / 2));}
 .section-block{margin-bottom:40px;}
 .section-block h2{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:14px;}
 /* ── TUTORIAL CARD ── */
