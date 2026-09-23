@@ -39,12 +39,12 @@ html,body{height:100%;font-family:'Source Sans 3',sans-serif;color:var(--text);b
 .btn-nav-o:hover{border-color:#fff;background:rgba(255,255,255,.1);}
 .page-body{display:flex;min-height:calc(100vh - 96px);}
 .main{flex:1;display:flex;flex-direction:column;min-width:0;}
-.page-header{background:var(--navy-mid);padding:32px 40px 28px;border-bottom:2px solid rgba(255,255,255,.06);}
+.page-header{background:var(--navy-mid);padding:32px max(40px, calc((100% - 1200px) / 2)) 28px;border-bottom:2px solid rgba(255,255,255,.06);}
 .page-eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:10px;}
 .page-header h1{font-family:'Source Serif 4',serif;font-size:30px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
 .page-header p{font-size:16px;color:#b8d8e8;line-height:1.65;max-width:620px;}
 .disclaimer-inline{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12px;color:#6a96b0;font-style:italic;}
-.content{flex:1;padding:32px 40px;}
+.content{flex:1;padding:32px max(40px, calc((100% - 1200px) / 2));}
 .goals-list{display:flex;flex-direction:column;gap:14px;margin-bottom:14px;}
 .goal-card{background:#fff;border:1.5px solid var(--sand-dark);border-radius:8px;display:flex;align-items:stretch;overflow:hidden;transition:all .2s;min-height:120px;}
 .goal-card:hover{border-color:var(--teal);box-shadow:0 3px 16px rgba(14,107,107,.1);}
